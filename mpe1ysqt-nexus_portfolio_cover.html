@@ -1,0 +1,400 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .cover-wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #EBEAE6;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .pixel-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .cross {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    
+  }
+  .cross:nth-child(even) { animation-delay: -1.5s; animation-duration: 3.5s; }
+  .cross:nth-child(3n) { animation-delay: -0.8s; animation-duration: 4s; }
+  @keyframes crossFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+    50% { transform: translateY(-6px) rotate(45deg); opacity: 1; }
+  }
+  @keyframes phoneFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .cross::before, .cross::after {
+    content: '';
+    position: absolute;
+    background: #B8B6B0;
+  }
+  .cross::before { width: 14px; height: 1.5px; top: 6px; left: 0; }
+  .cross::after  { width: 1.5px; height: 14px; top: 0; left: 6px; }
+
+  .phone-frame {
+    position: relative;
+    width: 290px;
+    background: #fff;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 4px 0 #C8C6C0, 0 0 0 1px rgba(0,0,0,0.08);
+    font-family: 'Space Grotesk', sans-serif;
+    flex-shrink: 0;
+    
+  }
+
+  .phone-header {
+    background: #0D0D12;
+    padding: 18px 16px 16px;
+  }
+  .phone-header-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .app-icon {
+    width: 38px; height: 38px;
+    background: #2563EB;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .app-icon svg { width: 22px; height: 22px; }
+  .brand-text { flex: 1; }
+  .brand-name {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .live-dot {
+    width: 7px; height: 7px;
+    background: #3B82F6;
+    border-radius: 50%;
+  }
+  .brand-sub {
+    color: #3B82F6;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    margin-top: 1px;
+  }
+  .close-btn {
+    color: #555;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 2px 6px;
+  }
+
+  .phone-body {
+    background: #F5F5F7;
+    padding: 18px 14px 20px;
+  }
+
+  .greeting {
+    margin-bottom: 18px;
+  }
+  .greeting h1 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #0D0D12;
+    line-height: 1.2;
+  }
+  .greeting p {
+    font-size: 11px;
+    color: #888;
+    margin-top: 3px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0D0D12;
+  }
+  .section-bar {
+    width: 3px; height: 16px;
+    background: #2563EB;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .view-badge {
+    background: #EEF2FF;
+    color: #2563EB;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 4px 8px;
+    border-radius: 20px;
+  }
+
+  .insight-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 0.5px solid #E8E8EA;
+  }
+  .insight-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: #F0F4FF;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .insight-text { flex: 1; min-width: 0; }
+  .insight-category {
+    font-size: 8px;
+    font-weight: 700;
+    color: #2563EB;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+  .insight-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #0D0D12;
+    line-height: 1.35;
+  }
+  .chevron {
+    color: #CCC;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  .show-more {
+    border: 1.5px dashed #DDD;
+    border-radius: 10px;
+    text-align: center;
+    padding: 9px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #999;
+    margin: 4px 0 16px;
+  }
+
+  .startup-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 0.5px solid #E8E8EA;
+  }
+  .startup-logo {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+  .logo-anext { background: #E8F5E9; }
+  .logo-aflow { background: #E3F0FF; }
+
+  .startup-info { flex: 1; min-width: 0; }
+  .startup-cat {
+    font-size: 8px;
+    font-weight: 700;
+    color: #2563EB;
+    letter-spacing: 0.08em;
+  }
+  .startup-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0D0D12;
+  }
+  .startup-desc {
+    font-size: 9.5px;
+    color: #999;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .plus-btn {
+    width: 26px; height: 26px;
+    border-radius: 8px;
+    background: #EEF2FF;
+    display: flex; align-items: center; justify-content: center;
+    color: #2563EB;
+    font-size: 15px;
+    font-weight: 400;
+    flex-shrink: 0;
+  }
+
+  .side-label {
+    display: none;
+  }
+
+
+</style>
+
+<div class="cover-wrap">
+
+  <div class="pixel-bg" id="pixelbg"></div>
+
+  <div class="phone-frame">
+    <div class="phone-header">
+      <div class="phone-header-inner">
+        <div class="app-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2"/>
+            <rect x="9" y="9" width="6" height="6" rx="1"/>
+            <line x1="9" y1="2" x2="9" y2="4"/>
+            <line x1="15" y1="2" x2="15" y2="4"/>
+            <line x1="9" y1="20" x2="9" y2="22"/>
+            <line x1="15" y1="20" x2="15" y2="22"/>
+            <line x1="2" y1="9" x2="4" y2="9"/>
+            <line x1="2" y1="15" x2="4" y2="15"/>
+            <line x1="20" y1="9" x2="22" y2="9"/>
+            <line x1="20" y1="15" x2="22" y2="15"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">NEXUS <div class="live-dot"></div></div>
+          <div class="brand-sub">STARTUP INTELLIGENCE</div>
+        </div>
+        <div class="close-btn">×</div>
+      </div>
+    </div>
+
+    <div class="phone-body">
+      <div class="greeting">
+        <h1>Good morning!</h1>
+        <p>Your daily ecosystem brief is ready.</p>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">
+          <div class="section-bar"></div>
+          Insights for You
+        </div>
+        <div class="view-badge">INVESTOR VIEW</div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-icon">📈</div>
+        <div class="insight-text">
+          <div class="insight-category">STARTUP GROWTH</div>
+          <div class="insight-title">How to Scale from Seed to Series A</div>
+        </div>
+        <div class="chevron">›</div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-icon">🏆</div>
+        <div class="insight-text">
+          <div class="insight-category">MILESTONE</div>
+          <div class="insight-title">Echelon Summit reaches 10,000 Attendees</div>
+        </div>
+        <div class="chevron">›</div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-icon">💰</div>
+        <div class="insight-text">
+          <div class="insight-category">FUNDING</div>
+          <div class="insight-title">Wavemaker Partners closes $150M Fund for SEA</div>
+        </div>
+        <div class="chevron">›</div>
+      </div>
+
+      <div class="show-more">SHOW MORE INSIGHTS ›</div>
+
+      <div class="section-header">
+        <div class="section-title">
+          <div class="section-bar"></div>
+          Trending Startups
+        </div>
+      </div>
+
+      <div class="startup-card">
+        <div class="startup-logo logo-anext">🤖</div>
+        <div class="startup-info">
+          <div class="startup-cat">ARTIFICIAL INTELLIGENCE</div>
+          <div class="startup-name">Artificial Next</div>
+          <div class="startup-desc">Innovative AI solutions for...</div>
+        </div>
+        <div class="plus-btn">+</div>
+      </div>
+
+      <div class="startup-card">
+        <div class="startup-logo logo-aflow">⚡</div>
+        <div class="startup-info">
+          <div class="startup-cat">ARTIFICIAL INTELLIGENCE</div>
+          <div class="startup-name">Artificial Flow</div>
+          <div class="startup-desc">Innovative AI solutions for...</div>
+        </div>
+        <div class="plus-btn">+</div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<script>
+  const bg = document.getElementById('pixelbg');
+  const wrap = bg.parentElement;
+  const W = wrap.offsetWidth || 700;
+  const H = wrap.offsetHeight || 560;
+
+  const crossPositions = [
+    [0.06,0.08],[0.88,0.07],[0.04,0.38],[0.93,0.42],
+    [0.12,0.72],[0.86,0.62],[0.08,0.92],[0.91,0.88],
+    [0.5,0.05],[0.5,0.94],[0.18,0.5],[0.82,0.5],
+  ];
+
+  crossPositions.forEach(([rx,ry]) => {
+    const el = document.createElement('div');
+    el.className = 'cross';
+    el.style.left = (rx*100)+'%';
+    el.style.top  = (ry*100)+'%';
+    bg.appendChild(el);
+  });
+
+  const dotCanvas = document.createElement('canvas');
+  dotCanvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
+  dotCanvas.width  = W;
+  dotCanvas.height = H;
+  bg.appendChild(dotCanvas);
+
+  const ctx = dotCanvas.getContext('2d');
+  ctx.fillStyle = '#C0BEB8';
+  const gap = 18;
+  for(let y = 10; y < H; y += gap){
+    for(let x = 10; x < W; x += gap){
+      ctx.fillRect(x, y, 1.5, 1.5);
+    }
+  }
+</script>

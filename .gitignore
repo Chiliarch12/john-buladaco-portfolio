@@ -1,0 +1,5 @@
+.DS_Store
+*.mov
+*.py
+.od-skills/
+.vercel/

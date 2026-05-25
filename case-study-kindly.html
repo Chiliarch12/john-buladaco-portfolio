@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kindly Studio — Scaling Agency Output from 1 to 10 through AI Automation | John Buladaco</title>
+<meta name="description" content="UX case study: Built a full AI-powered agency automation system — lead gen, AI-personalised outreach, 16-agent website builder, and operations dashboard. Senior UI/UX Designer work on AI-driven SaaS products.">
+<meta name="keywords" content="AI product design case study, SaaS AI platform, AI automation UX, generative AI design, UI/UX Designer AI experience, design systems, AI-driven product, LLM interface design">
+<meta name="author" content="John Buladaco">
+<link rel="canonical" href="https://johnbuladaco.com/case-study-kindly.html">
+<meta property="og:title" content="Scaling Agency Output from 1 to 10 through Five Automated Systems">
+<meta property="og:description" content="UX case study: Built a full AI-powered agency automation system — lead gen, AI-personalised outreach, 16-agent website builder, and operations dashboard.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://johnbuladaco.com/case-study-kindly.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scaling Agency Output from 1 to 10 — John Buladaco">
+<meta name="twitter:description" content="UX case study: Built a full AI-powered agency automation system — lead gen, AI-personalised outreach, 16-agent website builder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #ffffff;
+  --surface: #f8f8f8;
+  --border: #000000;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
+  --sans: 'IBM Plex Mono', monospace;
+  --serif: 'VT323', monospace;
+  --mono: 'Space Mono', monospace;
+  --scroll-progress: 0%;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
+  animation: moveDots 3s linear infinite;
+}
+@keyframes moveDots {
+  0% { background-position: 0 0; }
+  100% { background-position: 24px 24px; }
+}
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: var(--scroll-progress);
+  background: #000;
+  z-index: 1000;
+  transition: width 0.05s linear;
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  padding: 0 2rem;
+  border-bottom: 2px solid var(--border);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-size: 24px;
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-family: var(--mono);
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 2px;
+  background: var(--text-primary);
+  transition: width 0.2s ease;
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a:hover::after { width: 100%; }
+.nav-back {
+  font-size: 13px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: transparent;
+  border: 2px solid var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 0;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-links a.nav-back:hover {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+.container { max-width: 800px; margin: 0 auto; }
+section { padding: 80px 2rem; }
+.case-hero {
+  padding: 120px 2rem 80px;
+  border-bottom: 2px solid var(--border);
+}
+.case-hero .container { max-width: 800px; }
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.case-tag {
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 2px solid var(--text-primary);
+  background: var(--bg);
+}
+.case-tag--filled {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+.case-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+}
+.case-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 640px;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.case-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border);
+}
+.case-detail-label {
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.case-detail-value {
+  font-size: 14px;
+  font-weight: 500;
+}
+.case-section { border-bottom: 2px solid var(--border); }
+.case-section:last-of-type { border-bottom: none; }
+.section-label {
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: var(--bg);
+  padding: 6px 14px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--text-primary);
+}
+.case-h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+}
+.case-p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  max-width: 680px;
+}
+.case-p:last-child { margin-bottom: 0; }
+.case-list {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+.case-list li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.case-list li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.decision-card {
+  background: var(--bg);
+  border: 2px solid var(--text-primary);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.decision-card::before {
+  content: '═══════════════════════════════';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: var(--text-primary);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 4px 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.decision-card h4 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+.decision-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.flow-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 2px solid var(--text-primary);
+  counter-reset: step;
+}
+.flow-step {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 2px solid var(--text-primary);
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  counter-increment: step;
+}
+.flow-step:last-child { border-bottom: none; }
+.flow-step::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.flow-step span {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.outcome-quote {
+  border: 2px solid var(--text-primary);
+  padding: 2rem;
+  margin-top: 1.5rem;
+  position: relative;
+}
+.outcome-quote::before {
+  content: '"';
+  font-family: var(--serif);
+  font-size: 64px;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  line-height: 1;
+  color: var(--text-muted);
+}
+.outcome-quote blockquote {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+.outcome-quote cite {
+  font-size: 12px;
+  font-family: var(--mono);
+  font-style: normal;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-left: 2.5rem;
+}
+.img-placeholder span {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  max-width: 400px;
+}
+.next-list {
+  list-style: none;
+}
+.next-list li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  padding-left: 1.5rem;
+  position: relative;
+}
+.next-list li:last-child { border-bottom: none; }
+.next-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  color: var(--text-primary);
+}
+.case-cta {
+  text-align: center;
+  padding: 100px 2rem;
+}
+.case-cta h3 {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+}
+.case-cta p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--text-primary);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--text-primary);
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-primary:hover {
+  background: var(--bg);
+  color: var(--text-primary);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--text-primary);
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-ghost:hover {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.metric-card {
+  border: 2px solid var(--text-primary);
+  padding: 1.5rem;
+  text-align: center;
+}
+.metric-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.metric-label {
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+/* AI Model columns */
+.ai-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.ai-col {
+  border: 2px solid var(--text-primary);
+  padding: 1.5rem;
+}
+.ai-col h4 {
+  font-family: var(--serif);
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
+.ai-col ul {
+  list-style: none;
+}
+.ai-col ul li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  padding-left: 1.2rem;
+  position: relative;
+}
+.ai-col ul li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+/* System table */
+.system-table {
+  width: 100%;
+  border: 2px solid var(--text-primary);
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 14px;
+}
+.system-table th, .system-table td {
+  border: 2px solid var(--text-primary);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+.system-table th {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--surface);
+}
+.system-table td {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .case-hero { padding: 80px 1.5rem 60px; }
+  section { padding: 60px 1.5rem; }
+  .case-details { grid-template-columns: repeat(2, 1fr); }
+  .decision-card { padding: 1.25rem 1.5rem; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .ai-columns { grid-template-columns: 1fr; }
+  .system-table { font-size: 12px; }
+}
+@media (max-width: 480px) {
+  .case-details { grid-template-columns: 1fr; }
+  .case-meta { gap: 0.5rem; }
+  .metrics-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="mp5nfrlg-john-buladaco-portfolio.html" class="nav-logo">JB.</a>
+    <ul class="nav-links">
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#work">Work</a></li>
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#services">What I Do</a></li>
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#about">About</a></li>
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html" class="nav-back">← Back</a></li>
+    </ul>
+  </div>
+</nav>
+<main><article>
+
+<!-- HERO -->
+<section class="case-hero">
+  <div class="container">
+    <div class="case-meta">
+      <span class="case-tag case-tag--filled">Live</span>
+      <span class="case-tag">Web App</span>
+      <span class="case-tag">Full-Stack</span>
+      <span class="case-tag">AI System</span>
+    </div>
+    <h1 class="case-title">Scaling Agency Output from 1 to 10 through Five Automated Systems</h1>
+    <p class="case-subtitle">I built Kindly Studio to solve the agency scaling problem: finding leads, sending outreach, and delivering websites all cost too much time and headcount. The platform replaces the entire agency workforce with five automated systems — lead gen, email campaigns, a conversion-first website builder (16 AI agents), a unified dashboard, and an orchestration layer. One person. Output of a 10-person team. Websites at $0.67 per build.</p>
+    <div class="case-details">
+      <div>
+        <div class="case-detail-label">Role</div>
+        <div class="case-detail-value">Sole Designer, Developer & Operator</div>
+      </div>
+      <div>
+        <div class="case-detail-label">Platform</div>
+        <div class="case-detail-value">Web App + AI Pipeline</div>
+      </div>
+      <div>
+        <div class="case-detail-label">Timeline</div>
+        <div class="case-detail-value">March 2026 – Present</div>
+      </div>
+      <div>
+        <div class="case-detail-label">Stack</div>
+        <div class="case-detail-value">Next.js, Supabase, Claude AI</div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;border-radius:12px;overflow:hidden;">
+      <video data-scroll-video preload="metadata" loop muted playsinline aria-label="Kindly Studio platform demo" style="width:100%;height:auto;display:block;border-radius:12px;">
+        <source src="assets/videos/kindly-hero-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Problem & Context</span>
+    <h2 class="case-h2">Running a web design agency is an operations problem disguised as a creative one</h2>
+    <ul class="case-list">
+      <li><strong>Leads:</strong> Agencies hire SDRs ($4K–$6K/month) or spend 10–15hrs/week prospecting manually.</li>
+      <li><strong>Outreach:</strong> One person manages ~20 quality cold emails/day. At 2–5% reply rate, that's maybe 1 conversation.</li>
+      <li><strong>Delivery:</strong> Every website takes 40–60 hours. At $50/hr, that's $2K–$3K in labour before profit.</li>
+      <li><strong>Scaling:</strong> More clients = more hires = shrinking margins.</li>
+      <li><strong>The pricing trap:</strong> Charge $3K–$8K and small businesses can't afford you. Charge $500–$1K and you can't cover labour.</li>
+    </ul>
+    <p class="case-p"><strong>The gap:</strong> Millions of small service businesses need a $500–$2K website. Agencies reject them — the economics don't work. These businesses lose bookings daily from broken sites.</p>
+    <p class="case-p"><strong>My question:</strong> What if the entire agency operation ran as a system instead of a team?</p>
+    <div style="display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem;">
+      <img src="assets/images/kindly-problem-2.webp" alt="Traditional agency workflow showing time and cost bottlenecks across lead gen, outreach, onboarding, building, and revisions" style="width:100%;border-radius:12px;" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Goals</span>
+    <h2 class="case-h2">What I set out to build</h2>
+    <ul class="case-list">
+      <li>Automate lead gen, outreach, and delivery — no headcount needed to scale</li>
+      <li>Build a conversion-first website builder targeting <em>why</em> visitors don't book</li>
+      <li>Create a unified dashboard so one person can run everything</li>
+      <li>Price at $500–$3,000 — profitable through near-zero marginal cost</li>
+      <li>Close the loop — every build feeds back into lead generation</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Research & Insights</span>
+    <h2 class="case-h2">Audited 50+ pet business websites across AU, NZ, and SG</h2>
+    <p class="case-p"><strong>Agency ops:</strong> 60% of time is non-billable (prospecting, proposals, follow-ups, admin). Design is only 40% of the work.</p>
+    <p class="case-p"><strong>Website audits (50+ sites):</strong></p>
+    <ul class="case-list">
+      <li>92% had no Google rating visible on the homepage</li>
+      <li>78% had no pricing on the site at all</li>
+      <li>85% had a generic headline with no suburb or service type</li>
+      <li>70% had no clear booking path on mobile</li>
+      <li>Average site scored 34% → 75% after rebuild</li>
+    </ul>
+    <p class="case-p"><strong>Key insight:</strong> The conversion problem isn't just informational — it's emotional. Pet owners need to feel "my dog will be safe here" before they'll book. Trust and emotional assurance convert hesitation into confidence.</p>
+    <img src="assets/images/kindly-research-insights.webp" alt="Annotated screenshot of a real pet business website highlighting conversion issues" style="width:100%;border-radius:12px;margin-top:1.5rem;" loading="lazy">
+  </div>
+</section>
+
+<!-- DESIGN STRATEGY -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Design Strategy</span>
+    <h2 class="case-h2">Five interconnected systems where each feeds the next</h2>
+    <p class="case-p">Leads → outreach → audits → builds → case studies → content → more leads. One closed loop, mostly automated.</p>
+    <p class="case-p"><strong>Ruled out:</strong></p>
+    <ul class="case-list">
+      <li><strong>Hiring a team</strong> — margins collapse</li>
+      <li><strong>Existing tools</strong> — fragmented, no vertical integration</li>
+      <li><strong>Generic AI builders</strong> — no conversion logic</li>
+      <li><strong>Manual freelancing</strong> — doesn't scale</li>
+    </ul>
+    <img src="assets/images/kindly-problem-1.webp" alt="One System End-to-End — vertically integrated AI system vs ruled-out approaches" style="width:100%;border-radius:12px;margin-top:2rem;" loading="lazy">
+  </div>
+</section>
+
+<!-- KEY DECISIONS -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Key Decisions</span>
+    <h2 class="case-h2">Five architectural bets that shaped the system</h2>
+
+    <div class="decision-card">
+      <h4>Build lead gen first</h4>
+      <p><strong>Trade-off:</strong> Delayed product 2 weeks.</p>
+      <p>An agency without leads is just a portfolio. Had 50+/day flowing before the builder existed.</p>
+    </div>
+
+    <div class="decision-card">
+      <h4>Scrape, don't ask</h4>
+      <p><strong>Trade-off:</strong> Risk of incomplete data.</p>
+      <p>Eliminates intake forms. 90% of data in minutes. Ask only for what's missing — after showing value.</p>
+    </div>
+
+    <div class="decision-card">
+      <h4>A/B email with AI hooks</h4>
+      <p><strong>Trade-off:</strong> $0.02/lead + engineering complexity.</p>
+      <p>Personalised hooks reference specific website gaps. Infrastructure supports testing anything later.</p>
+    </div>
+
+    <div class="decision-card">
+      <h4>16 agents, not 1 prompt</h4>
+      <p><strong>Trade-off:</strong> Complex orchestration, slower.</p>
+      <p>Each agent enforces its own conversion rules. Version independently. Debug in isolation.</p>
+    </div>
+
+    <div class="decision-card">
+      <h4>Dashboard as foundation</h4>
+      <p><strong>Trade-off:</strong> Weeks of internal tooling.</p>
+      <p>At 50+ leads/day, you drown without visibility. Tried JSON files first — chaos within 3 weeks.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- THE FIVE SYSTEMS -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">System 1 — Lead Generation</span>
+    <h2 class="case-h2">50+ qualified leads/day across AU, NZ, SG, US</h2>
+    <p class="case-p">Google Places API → score → qualify → store in Supabase. Daily cron. 1M+ scraped total.</p>
+    <p class="case-p"><strong>Dashboard view:</strong> Filterable table with business name, rating, website score, status badges (New → Contacted → Replied → Converted). Bulk actions. Click-to-expand with full details + contact history.</p>
+    <div style="margin-top:1.5rem;border-radius:12px;overflow:hidden;">
+      <video data-scroll-video preload="metadata" loop muted playsinline aria-label="Kindly Studio lead generation dashboard demo" style="width:100%;border-radius:12px;">
+        <source src="assets/videos/kindly-leadgen-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">System 2 — Email Automation</span>
+    <h2 class="case-h2">AI-personalised outreach with A/B testing</h2>
+    <p class="case-p">Pulls top-scored leads daily → AI generates personalised hook (Variant A) or curiosity line (Variant B) → sends via personal Gmail → 4-day automated follow-up → tracks everything.</p>
+    <p class="case-p"><strong>Dashboard view:</strong> Daily metrics cards, A/B comparison panel (open rate, reply rate by variant), 30-day performance chart, follow-up queue, individual email log with content inspection.</p>
+    <div style="margin-top:1.5rem;border-radius:12px;overflow:hidden;">
+      <video data-scroll-video preload="metadata" loop muted playsinline aria-label="Kindly Studio email automation dashboard demo" style="width:100%;height:auto;display:block;border-radius:12px;">
+        <source src="assets/videos/kindly-email-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">System 3 — Conversion-First Website Builder</span>
+    <h2 class="case-h2">Not just a builder — a framework targeting why visitors leave without booking</h2>
+    <p class="case-p"><strong>The 11-area conversion framework:</strong></p>
+    <table class="system-table">
+      <thead>
+        <tr><th>Area</th><th>What it targets</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Hero</strong></td><td>Decision in 3 seconds — social proof + headline + CTA above fold</td></tr>
+        <tr><td><strong>Trust signals</strong></td><td>Rating, reviews, credentials visible immediately</td></tr>
+        <tr><td><strong>Services + Pricing</strong></td><td>Transparent pricing removes the #1 objection</td></tr>
+        <tr><td><strong>Differentiators</strong></td><td>Value positioned before cost</td></tr>
+        <tr><td><strong>Testimonials</strong></td><td>Specific reviews with names and star ratings</td></tr>
+        <tr><td><strong>Booking path</strong></td><td>One-tap, works at 11pm on mobile</td></tr>
+        <tr><td><strong>Local relevance</strong></td><td>Suburb + service area matches search intent</td></tr>
+        <tr><td><strong>Urgency</strong></td><td>Reason to book now, not "later"</td></tr>
+        <tr><td><strong>Objection handling</strong></td><td>FAQ, guarantees, cancellation — answer before they ask</td></tr>
+        <tr><td><strong>Trust architecture</strong></td><td>Layered throughout so trust compounds with every scroll</td></tr>
+        <tr><td><strong>Emotional assurance</strong></td><td>"Will my dog be okay?" — answered before they consciously ask it</td></tr>
+      </tbody>
+    </table>
+    <p class="case-p" style="margin-top:1.5rem"><strong>How it builds:</strong> Agent 00 scrapes everything into a Master Brief → Agents 01–16 each build one section with enforced conversion rules → Style selection gate (human picks from 7–10 options) → CRO simulation check (nothing ships below 70%).</p>
+    <p class="case-p"><strong>Result:</strong> 34% → 75% average score. $0.67 per build. ~2 hours human time vs. 40–60 hours traditional.</p>
+    <div style="margin-top:1.5rem;border-radius:12px;overflow:hidden;"><video data-scroll-video preload="metadata" loop muted playsinline style="width:100%;height:auto;display:block;border-radius:12px;" aria-label="Kindly Studio website builder demo"><source src="assets/videos/kindly-webbuilder-demo.mp4" type="video/mp4"></video></div>
+  </div>
+</section>
+
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">System 4 — Dashboard (Operations Centre)</span>
+    <h2 class="case-h2">10–15 minutes/day to run the entire operation</h2>
+    <p class="case-p">Custom Next.js + Supabase dashboard. Five tabs: Lead Pipeline, Email Campaigns, Website Builds, Audit Queue, Analytics.</p>
+    <p class="case-p"><strong>Design principles:</strong></p>
+    <ul class="case-list">
+      <li><strong>Exceptions first</strong> — surfaces problems, not status reports</li>
+      <li><strong>One-click depth</strong> — summary → specific item in one click</li>
+      <li><strong>Real-time where it matters</strong> — email delivery and build progress live-update</li>
+      <li><strong>Designed for one person</strong> — no team features, no overhead</li>
+    </ul>
+    <div style="margin-top:1.5rem;">
+      <video aria-label="Kindly Studio operations dashboard — daily workflow overview" data-scroll-video preload="metadata" loop muted playsinline style="width:100%;border-radius:12px;display:block;">
+        <source src="assets/videos/kindly-hero-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">System 5 — AI Orchestration</span>
+    <h2 class="case-h2">Where AI works, where the human stays in control</h2>
+    <div class="ai-columns">
+      <div class="ai-col">
+        <h4>AI Handles</h4>
+        <ul>
+          <li>Single source of truth (Master Brief — one scrape, no drift)</li>
+          <li>Error isolation (failed agent doesn't crash the pipeline)</li>
+          <li>Silent fallbacks (template used if AI hook fails)</li>
+          <li>Flagging (⚠️ missing data — never publishes with placeholders)</li>
+          <li>Version control (each agent versioned independently)</li>
+        </ul>
+      </div>
+      <div class="ai-col">
+        <h4>Human Gates</h4>
+        <ul>
+          <li>Style selection — AI presents 7–10 options, human picks one</li>
+          <li>Final review — every build gets quality check before delivery</li>
+          <li>Client communication — all DMs and proposals are human-written</li>
+          <li>Pricing decisions and scope negotiation</li>
+          <li>AI proposes, human disposes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOME -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Outcome</span>
+    <h2 class="case-h2">System performance metrics</h2>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-num">50+/day</div>
+        <div class="metric-label">Qualified Leads</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">40/day</div>
+        <div class="metric-label">Emails Sent (A/B)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">$0.67</div>
+        <div class="metric-label">Per Build (API)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">~1 week</div>
+        <div class="metric-label">vs 6–8 weeks agency</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">~2 hrs</div>
+        <div class="metric-label">vs 40–60 hrs human</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">34→75%</div>
+        <div class="metric-label">Score Improvement</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">5</div>
+        <div class="metric-label">Builds Shipped</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">10–15 min</div>
+        <div class="metric-label">Daily Overhead</div>
+      </div>
+    </div>
+    <p class="case-p" style="margin-top:1.5rem"><strong>Honest gaps:</strong> Conversion lift needs 3+ months of analytics. A/B needs ~1,000 sends for significance. Attribution tracking in progress.</p>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Reflection & Next Steps</span>
+    <h2 class="case-h2">What I learned and what's next</h2>
+    <p class="case-p"><strong>Do differently:</strong> Build the dashboard and database first. JSON files don't scale. The control centre is the foundation, not an afterthought.</p>
+    <p class="case-p"><strong>Push further:</strong> Proper A/B cohort tracking. Automated social posting. Client self-serve dashboard. Expand beyond pet businesses — the framework applies to any service vertical.</p>
+    <ul class="next-list">
+      <li>Proper A/B cohort tracking with statistical significance</li>
+      <li>Automated social media posting (currently manual)</li>
+      <li>Client self-serve dashboard</li>
+      <li>Expand beyond pet businesses to other service verticals</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="case-cta reveal">
+  <h3>See more work</h3>
+  <p>Back to the full portfolio or check out another case study.</p>
+  <a href="mp5nfrlg-john-buladaco-portfolio.html" class="btn-primary">← Back to Portfolio</a>
+  &nbsp;&nbsp;
+  <a href="case-study-pawbook.html" class="btn-ghost">PawBook Case Study →</a>
+</section>
+
+<script>
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const progress = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.documentElement.style.setProperty('--scroll-progress', progress + '%');
+}, { passive: true });
+
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Scroll-triggered video playback
+const videoObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.play(); }
+    else { entry.target.pause(); }
+  });
+}, { rootMargin: '200px' });
+document.querySelectorAll('[data-scroll-video]').forEach(v => videoObs.observe(v));
+</script>
+</article></main>
+</body>
+</html>

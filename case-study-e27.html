@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>e27 AI Assistant — Reducing Discovery Friction from 3 Steps to Zero | John Buladaco</title>
+<meta name="description" content="UX case study: Redesigned e27's AI discovery assistant from a 3-step menu into an instant daily briefing. Senior UI/UX Designer work on AI interfaces, LLM-powered products, and generative AI UX.">
+<meta name="keywords" content="AI UX case study, AI interface design, LLM product design, generative AI UX, UI/UX Designer AI, chatbot redesign, AI assistant UX, SaaS AI platform design">
+<meta name="author" content="John Buladaco">
+<link rel="canonical" href="https://johnbuladaco.com/case-study-e27.html">
+<meta property="og:title" content="Reducing Discovery Friction from 3 Steps to Zero for e27's Startup Community">
+<meta property="og:description" content="UX case study: Redesigned e27's AI discovery assistant from a 3-step menu into an instant daily briefing.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://johnbuladaco.com/case-study-e27.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reducing Discovery Friction from 3 Steps to Zero — John Buladaco">
+<meta name="twitter:description" content="UX case study: Redesigned e27's AI discovery assistant from a 3-step menu into an instant daily briefing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #ffffff;
+  --surface: #f8f8f8;
+  --border: #000000;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
+  --sans: 'IBM Plex Mono', monospace;
+  --serif: 'VT323', monospace;
+  --mono: 'Space Mono', monospace;
+  --scroll-progress: 0%;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
+  animation: moveDots 3s linear infinite;
+}
+@keyframes moveDots {
+  0% { background-position: 0 0; }
+  100% { background-position: 24px 24px; }
+}
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: var(--scroll-progress);
+  background: #000;
+  z-index: 1000;
+  transition: width 0.05s linear;
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  padding: 0 2rem;
+  border-bottom: 2px solid var(--border);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-size: 24px;
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  font-size: 13px;
+  font-family: var(--mono);
+  text-decoration: none;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+  position: relative;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--text-primary);
+  transition: width 0.2s;
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a:hover::after { width: 100%; }.nav-back {
+  font-size: 13px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: transparent;
+  border: 2px solid var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 0;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-links a.nav-back:hover {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+.container { max-width: 800px; margin: 0 auto; }
+section { padding: 80px 2rem; }
+.case-hero {
+  padding: 120px 2rem 80px;
+  border-bottom: 2px solid var(--border);
+}
+.case-hero .container { max-width: 800px; }
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.case-tag {
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 2px solid var(--text-primary);
+  background: var(--bg);
+}
+.case-tag--filled {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+.case-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+}
+.case-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 640px;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.case-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border);
+}
+.case-detail-label {
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.case-detail-value {
+  font-size: 14px;
+  font-weight: 500;
+}
+.case-section { border-bottom: 2px solid var(--border); }
+.case-section:last-of-type { border-bottom: none; }
+.section-label {
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: var(--bg);
+  padding: 6px 14px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--text-primary);
+}
+.case-h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-family: var(--font-display); margin-bottom: 1.5rem; line-height: 1.3; }
+    .case-h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+}
+.case-p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  max-width: 680px;
+}
+.case-p:last-child { margin-bottom: 0; }
+.case-list {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+.case-list li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.case-list li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.decision-card {
+  background: var(--bg);
+  border: 2px solid var(--text-primary);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.decision-card::before {
+  content: '═══════════════════════════════';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: var(--text-primary);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 4px 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.decision-card h4 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+.decision-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.flow-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 2px solid var(--text-primary);
+  counter-reset: step;
+}
+.flow-step {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 2px solid var(--text-primary);
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  counter-increment: step;
+}
+.flow-step:last-child { border-bottom: none; }
+.flow-step::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  min-width: 2rem;
+}
+.flow-step span {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.two-col-box {
+  border: 2px solid var(--text-primary);
+  padding: 1.5rem;
+}
+.two-col-box h4 {
+  font-family: var(--serif);
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+.two-col-box ul {
+  list-style: none;
+}
+.two-col-box ul li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-left: 1.2rem;
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+.two-col-box ul li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.outcome-card {
+  border: 2px solid var(--text-primary);
+  padding: 1.5rem;
+  text-align: center;
+}
+.outcome-card .num {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.outcome-card .label {
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.metrics-comparison {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 2px solid var(--text-primary);
+  margin: 2.5rem 0;
+}
+.metric-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  border-right: 2px solid var(--text-primary);
+}
+.metric-col:last-child { border-right: none; }
+.metric-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.metric-before {
+  font-family: var(--display);
+  font-size: 28px;
+  color: #c0392b;
+  text-decoration: line-through;
+}
+.metric-arrow {
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--text-muted);
+  margin: 0.5rem 0;
+}
+.metric-after {
+  font-family: var(--display);
+  font-size: 32px;
+  color: #27ae60;
+}
+.metric-title {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 12px;
+  text-transform: uppercase;
+}
+.metric-desc {
+  font-family: var(--body);
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+.quote-block {
+  border-left: 4px solid var(--text-primary);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.case-cta {
+  text-align: center;
+  padding: 80px 2rem;
+  border-top: 2px solid var(--border);
+}
+.case-cta h3 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.case-cta p {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+.btn-primary {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border: 2px solid var(--text-primary);
+  background: var(--text-primary);
+  color: var(--bg);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.btn-primary:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 3px 3px 0 var(--text-primary);
+}
+.btn-ghost {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border: 2px solid var(--text-primary);
+  background: transparent;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.btn-ghost:hover {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+.img-placeholder span {
+  font-size: 13px;
+  font-family: var(--mono);
+  color: var(--text-muted);
+  display: block;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.flow-comparison { margin-bottom: 2rem; }
+.flow-comparison h4 {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  color: var(--text-muted);
+}
+.flow-comparison .flow-steps { margin-bottom: 2rem; }
+.solution-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid var(--text-primary);
+  margin-bottom: 2rem;
+  font-size: 14px;
+}
+.solution-table th, .solution-table td {
+  border: 2px solid var(--text-primary);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+.solution-table th {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--surface);
+}
+.solution-table td {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  section { padding: 60px 1.5rem; }
+  .case-hero { padding: 100px 1.5rem 60px; }
+  .two-col { grid-template-columns: 1fr; }
+  .outcome-grid { grid-template-columns: 1fr 1fr; }
+  .metrics-comparison { grid-template-columns: 1fr 1fr; }
+  .metric-col:nth-child(2) { border-right: none; }
+  .metric-col:nth-child(1), .metric-col:nth-child(2) { border-bottom: 2px solid var(--text-primary); }
+  .case-details { grid-template-columns: 1fr 1fr; }
+  .solution-table { font-size: 12px; }
+  .solution-table th, .solution-table td { padding: 0.5rem 0.75rem; }
+  .bento-grid-3 { grid-template-columns: 1fr !important; gap: 20px !important; padding: 20px !important; }
+  .bento-grid-3 > div:first-child { grid-row: span 1 !important; }
+  .bento-grid-3 > div:last-child { grid-column: 1 !important; grid-row: auto !important; }
+}
+@media (max-width: 480px) {
+  .outcome-grid { grid-template-columns: 1fr; }
+  .case-details { grid-template-columns: 1fr; }
+  .case-cta div { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="mp5nfrlg-john-buladaco-portfolio.html" class="nav-logo">JB.</a>
+    <ul class="nav-links">
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#work">Work</a></li>
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#services">What I Do</a></li>
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#about">About</a></li>
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html" class="nav-back">← Back</a></li>
+    </ul>
+  </div>
+</nav><main><article>
+
+<section class="case-hero">
+  <div class="container">
+    <div class="case-meta">
+      <span class="case-tag case-tag--filled">Live</span>
+      <span class="case-tag">Web Widget</span>
+      <span class="case-tag">AI Assistant</span>
+      <span class="case-tag">UX Redesign</span>
+    </div>
+    <h1 class="case-title">Reducing Discovery Friction from 3 Steps to Zero for e27's Startup Community</h1>
+    <p class="case-subtitle">Reduced interaction steps from 3 to 0. Replaced a menu-first interrogation model with an instant daily intelligence brief that surfaces personalised insights, trending startups, and featured events the moment it opens.</p>
+    <div class="case-details">
+      <div>
+        <div class="case-detail-label">Role</div>
+        <div class="case-detail-value">Product Designer</div>
+      </div>
+      <div>
+        <div class="case-detail-label">Platform</div>
+        <div class="case-detail-value">Web Widget (e27.co)</div>
+      </div>
+      <div>
+        <div class="case-detail-label">Timeline</div>
+        <div class="case-detail-value">2024–2026</div>
+      </div>
+      <div>
+        <div class="case-detail-label">Impact</div>
+        <div class="case-detail-value">3 → 0 steps to value</div>
+      </div>
+    </div>
+    <div style="margin-top: 2rem; width:100%; aspect-ratio:16/9; position:relative; overflow:hidden; border:2px solid var(--border);">
+      <iframe src="mpf8mc1z-nexus_cover_final-_1_.html" style="position:absolute;top:0;left:0;width:200%;height:200%;transform:scale(0.5);transform-origin:top left;border:none;pointer-events:none;" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM & CONTEXT -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Problem & Context</span>
+    <h2 class="case-h2">Three clicks before any value</h2>
+    <p class="case-p">e27 shipped EVI as a pop-up assistant in the lower-right corner. The interaction model required users to navigate through three selection steps before seeing any content:</p>
+    <ul class="case-list">
+      <li><strong>Step 1:</strong> "How can I help you today?" — pick from 5 actions (Discover Content, Attend Events, Discover Investors, Discover Startups, Get Support)</li>
+      <li><strong>Step 2:</strong> "Would you like to read the latest in:" — pick from 8 keyword pills (Singapore, AI, Global, Echelon, etc.)</li>
+      <li><strong>Step 3:</strong> Finally see results — article titles with thumbnails</li>
+    </ul>
+    <p class="case-p">Every step was a drop-off point. The user had to know what they wanted before the assistant could help — defeating the purpose of a discovery tool.</p>
+    <h3 class="case-h3">What I observed</h3>
+    <ul class="case-list">
+      <li>Most users came to e27 for news (funding rounds, startup growth, ecosystem updates) and startup discovery — not to navigate a menu</li>
+      <li>The 5-action grid treated all actions as equal priority, but usage was heavily skewed toward content and startups</li>
+      <li>The keyword selection step added friction without clarity — users just picked the first interesting option</li>
+      <li>By the time results appeared, the user had invested 3 interactions with zero payoff</li>
+    </ul>
+    <div class="bento-grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-top:2rem;padding:32px;background:#f5f5f5;border-radius:12px;">
+      <div style="background:#fff;border-radius:12px;padding:16px;box-shadow:0 4px 24px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;">
+        <img src="assets/images/mpfl37zq-Content---1.png" alt="e27 EVI chatbot original UI — multi-step content discovery requiring 3 clicks to find startups" loading="lazy" style="width:100%;height:auto;border-radius:8px;">
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:16px;box-shadow:0 4px 24px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;">
+        <img src="assets/images/mpfl37zs-Content---2.png" alt="e27 NEXUS AI assistant — keyword-based content filtering with real-time results" loading="lazy" style="width:100%;height:auto;border-radius:8px;">
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:16px;box-shadow:0 4px 24px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;">
+        <img src="assets/images/mpfl37zs-Content---3.png" alt="e27 NEXUS AI assistant redesigned UI — instant startup discovery with trending content on open" loading="lazy" style="width:100%;height:auto;border-radius:8px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Goals</span>
+    <h2 class="case-h2">What success looks like</h2>
+    <ul class="case-list">
+      <li>Deliver value on first open — no selection required to see relevant content</li>
+      <li>Prioritise what users actually come for (news + startups) over secondary actions</li>
+      <li>Reduce steps to content from 3 to 0</li>
+      <li>Keep all original functionality accessible without cluttering the primary experience</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESEARCH & INSIGHTS -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Research & Insights</span>
+    <h2 class="case-h2">Understanding the real usage patterns</h2>
+    <p class="case-p">Analysed the original EVI interaction flow against user behaviour patterns on e27.</p>
+    <ul class="case-list">
+      <li>Content discovery and startup browsing accounted for the majority of widget interactions</li>
+      <li>Users who reached Step 3 (results) engaged well — the problem was getting them there</li>
+      <li>The "Guide Keywords" step added cognitive load without meaningful filtering — most users picked broadly (e.g., "Singapore" or "AI")</li>
+      <li>Events and support were low-frequency actions that didn't need primary placement</li>
+    </ul>
+    <div class="quote-block">
+      The assistant shouldn't ask "what do you want?" — it should show "here's what matters today" and let users go deeper if they choose. The best discovery tool doesn't feel like a tool. It feels like a briefing.
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN STRATEGY -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Design Strategy</span>
+    <h2 class="case-h2">From interrogation to briefing</h2>
+    <p class="case-p">Replace the interrogation model (ask → filter → show) with a briefing model (show → let them explore). Surface the highest-value content immediately, push secondary actions to the bottom.</p>
+    <h3 class="case-h3">What I ruled out</h3>
+    <ul class="case-list">
+      <li><strong>Keeping the 3-step flow but faster</strong> — the steps themselves are the problem, not the speed</li>
+      <li><strong>Adding a search bar</strong> — creates expectation of general knowledge; EVI's value is curated ecosystem content</li>
+      <li><strong>Removing action categories entirely</strong> — some users do want to specifically find investors or get support; those paths need to exist</li>
+    </ul>
+    <p class="case-p">Chose a daily intelligence brief format — personalised insights at the top, trending startups in the middle, featured event as a highlight card, and the original 5 actions collapsed into "More Actions" at the bottom. Zero steps to value. Full functionality preserved.</p>
+  </div>
+</section>
+
+<!-- KEY DECISIONS -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Key Decisions</span>
+    <h2 class="case-h2">Four design bets</h2>
+    <div class="decision-card">
+      <h4>Content-first, not menu-first</h4>
+      <p>Open the widget and immediately see "Insights for You" — categorised news cards with no prior selection required. The 80% use case (reading news) is served in 0 clicks instead of 3. Trade-off: less user control over what appears first — the AI/system decides what's relevant.</p>
+    </div>
+    <div class="decision-card">
+      <h4>Trending Startups surfaced by default</h4>
+      <p>Show trending startup cards with vertical tags and a connect button directly in the main view. Startup-investor connections are e27's core value prop — hiding them behind a menu meant most users never saw them. Trade-off: takes vertical space, not every user wants startup discovery on every visit.</p>
+    </div>
+    <div class="decision-card">
+      <h4>Featured Event as a visual highlight card</h4>
+      <p>A single prominent event card ("Don't Miss") with event name, date, and format — not a list of 10 events. One well-presented event converts better than a list of 10 titles. Trade-off: only shows one event; users looking for multiple need to go deeper.</p>
+    </div>
+    <div class="decision-card">
+      <h4>Original actions demoted to "More Actions"</h4>
+      <p>Content, Events, Investors, Startups, Support — all still accessible as small icons at the bottom. The original design optimised for the 20% use case at the expense of the 80%. Flipping the hierarchy serves the majority without removing functionality.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CORE FLOW -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Core Flow</span>
+    <h2 class="case-h2">Before and after</h2>
+    <div class="flow-comparison">
+      <h4>Original (EVI) — 3 steps to value</h4>
+      <div class="flow-steps">
+        <div class="flow-step"><span>Open widget → "How can I help?" with 5 action buttons</span></div>
+        <div class="flow-step"><span>Click action → "Would you like to read the latest in:" with 8 keyword pills</span></div>
+        <div class="flow-step"><span>Click keyword → Finally see results (articles with thumbnails)</span></div>
+        <div class="flow-step"><span>Click article → Article page</span></div>
+      </div>
+    </div>
+    <div class="flow-comparison">
+      <h4>Redesigned (NEXUS) — 0 steps to value</h4>
+      <div class="flow-steps">
+        <div class="flow-step"><span>Open widget → Immediately see: Insights for You (3 news cards) + Trending Startups + Featured Event + More Actions</span></div>
+        <div class="flow-step"><span>Tap any card → Article / Profile / Event page</span></div>
+      </div>
+    </div>
+    <p class="case-p"><strong>Result:</strong> 0 interactions before seeing relevant content. 1 tap to engage.</p>
+    <div style="margin-top: 2rem; border: 2px solid var(--border); display: flex; justify-content: center; align-items: center; background: var(--surface); padding: 1rem;">
+      <video aria-label="e27 NEXUS AI assistant interaction demo" loop muted playsinline preload="metadata" style="width: 100%; max-width: 450px; height: auto; display: block;">
+        <source src="assets/videos/e27-discovery-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">AI Interaction Model</span>
+    <h2 class="case-h2">Where AI helps, where humans stay in control</h2>
+    <p class="case-p">The briefing model requires intelligence — it needs to know what's relevant to this user, today. Without AI, "Insights for You" would just be the latest 3 articles with no personalisation.</p>
+    <div class="two-col">
+      <div class="two-col-box">
+        <h4>Human Control</h4>
+        <ul>
+          <li>"Investor View" toggle — user explicitly switches perspective</li>
+          <li>"Show More" links — user decides when to go deeper</li>
+          <li>"More Actions" — full original functionality preserved</li>
+          <li>Every card is tappable — user chooses what to engage with</li>
+        </ul>
+      </div>
+      <div class="two-col-box">
+        <h4>Trust Mechanisms</h4>
+        <ul>
+          <li>No hallucination — all content from e27's published ecosystem data</li>
+          <li>Categorised cards (Startup Growth, Milestone, Funding) — user knows why something is shown</li>
+          <li>Freshness signal — "Your daily ecosystem brief is ready"</li>
+          <li>Graceful empty states — sections collapse if no data</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: 2rem; border: 2px solid var(--border); display: flex; justify-content: center; align-items: center; background: var(--surface); padding: 1rem;">
+      <video aria-label="e27 AI interaction model — content briefing demo" loop muted playsinline preload="metadata" style="width: 100%; max-width: 450px; height: auto; display: block;">
+        <source src="assets/videos/e27-ai-interaction-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOME -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Outcome</span>
+    <h2 class="case-h2">Measurable improvement</h2>
+
+    <table class="solution-table">
+      <thead>
+        <tr><th>Section</th><th>What it shows</th><th>Interaction</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Insights for You</td><td>3 categorised news cards with Investor View toggle</td><td>0 — visible on open</td></tr>
+        <tr><td>Trending Startups</td><td>Startup cards with vertical, description, + connect</td><td>0 — visible on scroll</td></tr>
+        <tr><td>Don't Miss</td><td>Featured event card with date and format</td><td>0 — visible on scroll</td></tr>
+        <tr><td>More Actions</td><td>Content, Events, Investors, Startups, Support icons</td><td>1 tap — specific navigation</td></tr>
+      </tbody>
+    </table>
+    <div class="metrics-comparison">
+      <div class="metric-col">
+        <span class="metric-label">Steps to Content</span>
+        <span class="metric-before">3</span>
+        <span class="metric-arrow">→</span>
+        <span class="metric-after">0</span>
+        <span class="metric-title">Reduced Clicks & Friction</span>
+        <span class="metric-desc">Instant access to key materials</span>
+      </div>
+      <div class="metric-col">
+        <span class="metric-label">Items on Open</span>
+        <span class="metric-before">0</span>
+        <span class="metric-arrow">→</span>
+        <span class="metric-after">8+</span>
+        <span class="metric-title">Increased Initial Engagement</span>
+        <span class="metric-desc">Abundant content discovery upon launching</span>
+      </div>
+      <div class="metric-col">
+        <span class="metric-label">Startup Discovery</span>
+        <span class="metric-before">Hidden</span>
+        <span class="metric-arrow">→</span>
+        <span class="metric-after">Default</span>
+        <span class="metric-title">Streamlined Onboarding Flow</span>
+        <span class="metric-desc">Features are instantly visible to new users</span>
+      </div>
+      <div class="metric-col">
+        <span class="metric-label">Event Visibility</span>
+        <span class="metric-before">Buried</span>
+        <span class="metric-arrow">→</span>
+        <span class="metric-after">Featured</span>
+        <span class="metric-title">Maximized Event Promotion</span>
+        <span class="metric-desc">Crucial events get prominent placement</span>
+      </div>
+    </div>
+    <div class="quote-block">
+      Reducing friction from 3 steps to 0 creates a daily habit ("check NEXUS") rather than a utility model ("use EVI when I need something specific").
+    </div>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="case-section reveal">
+  <div class="container">
+    <span class="section-label">Reflection & Next Steps</span>
+    <h2 class="case-h2">What I'd do differently</h2>
+    <p class="case-p">I'd validate the "Investor View" toggle with data before shipping. It assumes users self-identify by role — but many e27 users are both founders AND investors. A better signal might be behavioural (what they click on) rather than explicit (a toggle).</p>
+    <h3 class="case-h3">What I'd push further</h3>
+    <p class="case-p">Make the briefing truly personalised over time. Right now it's role-based (investor vs. general). With engagement data, NEXUS could learn which verticals, funding stages, and regions each user cares about — making the daily brief increasingly relevant without any manual filtering.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="case-cta">
+  <h3>See more work</h3>
+  <p>Back to the portfolio or check out another case study.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <a href="mp5nfrlg-john-buladaco-portfolio.html" class="btn-primary">← Back to Portfolio</a>
+    <a href="case-study-kindly.html" class="btn-ghost">Kindly Studio →</a>
+  </div>
+</section>
+
+<script>
+const progressBar = document.getElementById('progress-bar');
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+reveals.forEach(el => revealObserver.observe(el));
+
+// Scroll-triggered video playback
+const videoObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.play(); }
+    else { e.target.pause(); }
+  });
+}, { rootMargin: '200px', threshold: 0.25 });
+document.querySelectorAll('video').forEach(v => videoObs.observe(v));
+</script>
+</article></main>
+</body>
+</html>

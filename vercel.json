@@ -1,0 +1,35 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/mp5nfrlg-john-buladaco-portfolio.html" },
+    { "source": "/case-study/matatag", "destination": "/case-study-matatag.html" },
+    { "source": "/case-study/pawbook", "destination": "/case-study-pawbook.html" },
+    { "source": "/case-study/e27", "destination": "/case-study-e27.html" },
+    { "source": "/case-study/kindly", "destination": "/case-study-kindly.html" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/images/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/assets/gifs/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/assets/videos/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*).html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ]
+}

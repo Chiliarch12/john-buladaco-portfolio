@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>PawBook Cover</title></head>
+<body style="margin:0;padding:0;">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .cover-wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #E8E7E3;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 20px;
+  }
+  .pixel-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .cross {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+  }
+  .cross::before, .cross::after {
+    content: '';
+    position: absolute;
+    background: #B8B6B0;
+  }
+  .cross::before { width: 14px; height: 1.5px; top: 6px; left: 0; }
+  .cross::after { width: 1.5px; height: 14px; top: 0; left: 6px; }
+  .phone-frame {
+    position: relative;
+    width: 240px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 0 #C8C6C0, 0 0 0 1px rgba(0,0,0,0.08);
+    filter: grayscale(100%);
+  }
+  .phone-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
+<div class="cover-wrap">
+  <div class="pixel-bg" id="pixelbg"></div>
+  <div class="phone-frame">
+    <img src="assets/images/mpgscp2f-Screenshot-2026-05-22-at-4.41.37-PM.webp" alt="PawBook Today Dashboard" loading="lazy">
+  </div>
+  <div class="phone-frame">
+    <img src="assets/images/mpgscp2j-Screenshot-2026-05-22-at-4.41.45-PM.webp" alt="PawBook Booking Screen" loading="lazy">
+  </div>
+</div>
+
+<script>
+  const bg = document.getElementById('pixelbg');
+  const wrap = bg.parentElement;
+  const W = wrap.offsetWidth || 700;
+  const H = wrap.offsetHeight || 560;
+  const crossPositions = [
+    [0.06,0.08],[0.88,0.07],[0.04,0.38],[0.93,0.42],
+    [0.12,0.72],[0.86,0.62],[0.08,0.92],[0.91,0.88],
+    [0.5,0.05],[0.5,0.94],[0.18,0.5],[0.82,0.5],
+  ];
+  crossPositions.forEach(([rx,ry]) => {
+    const el = document.createElement('div');
+    el.className = 'cross';
+    el.style.left = (rx*100)+'%';
+    el.style.top = (ry*100)+'%';
+    bg.appendChild(el);
+  });
+  const dotCanvas = document.createElement('canvas');
+  dotCanvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
+  dotCanvas.width = W;
+  dotCanvas.height = H;
+  bg.appendChild(dotCanvas);
+  const ctx = dotCanvas.getContext('2d');
+  ctx.fillStyle = '#C0BEB8';
+  const gap = 18;
+  for(let y = 10; y < H; y += gap){
+    for(let x = 10; x < W; x += gap){
+      ctx.fillRect(x, y, 1.5, 1.5);
+    }
+  }
+</script>
+</body>
+</html>

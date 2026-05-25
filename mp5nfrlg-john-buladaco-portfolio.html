@@ -1,0 +1,1641 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Buladaco — Senior UI/UX Designer · AI Product Design · SaaS & Generative AI</title>
+<meta name="description" content="Senior UI/UX Designer with 10+ years in product design across SaaS platforms, web apps, and mobile. Now incorporating AI into every step — generative AI interfaces, LLM-powered products, design systems, and prompt-to-prototype workflows using Figma and AI tools. Available for remote & freelance.">
+<meta name="keywords" content="UI/UX Designer, AI Product Designer, Senior Product Designer, Generative AI UX, AI interfaces, LLM design, SaaS AI platform, UX Designer AI tools, Figma AI, prompt designer UX, design systems, AI-driven product, UI/UX designer with AI experience, Product Designer Generative AI">
+<meta name="author" content="John Buladaco">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://johnbuladaco.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="John Buladaco — Senior UI/UX Designer · AI Product Design">
+<meta property="og:description" content="Senior UI/UX Designer with 10+ years in product design across SaaS, web, and mobile. Now incorporating AI into every step — generative AI interfaces, design systems, and prompt-to-prototype workflows.">
+<meta property="og:url" content="https://johnbuladaco.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="John Buladaco — Senior UI/UX Designer · AI Product Design">
+<meta name="twitter:description" content="Senior UI/UX Designer specializing in AI-driven products, generative AI interfaces, and SaaS platforms. Human-led design, AI-accelerated.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "John Buladaco",
+  "jobTitle": "Senior UI/UX Designer – AI Products",
+  "description": "Senior UI/UX Designer with AI experience specializing in generative AI interfaces, LLM-powered products, SaaS AI platforms, and design systems. Expert in Figma, AI tools, and prompt-to-prototype workflows.",
+  "knowsAbout": ["UI/UX Design", "AI Product Design", "Generative AI", "Large Language Models", "Design Systems", "SaaS Platforms", "Figma", "AI Interfaces", "Prompt Design UX", "AI-driven Product Design", "Claude AI", "LLM UX", "AI Tools"],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Senior UI/UX Designer",
+    "skills": "UI/UX Design, AI Product Design, Generative AI UX, Design Systems, Figma, Prototyping, SaaS, LLM Interfaces, AI Tools"
+  },
+  "url": "https://johnbuladaco.com",
+  "sameAs": ["https://linkedin.com/in/johnbuladaco"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=VT323&amp;family=Space+Mono:wght@400;700&amp;family=IBM+Plex+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --surface: #f8f8f8;
+  --border: #000000;
+  --border-hover: #000000;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
+  --accent: #000000;
+  --neon-magenta: #000000;
+  --neon-green: #000000;
+  --neon-pink: #000000;
+  --neon-cyan: #000000;
+  --neon-yellow: #000000;
+  --sans: 'IBM Plex Mono', monospace;
+  --serif: 'VT323', monospace;
+  --mono: 'Space Mono', monospace;
+  --pixel-size: 4px;
+  --scroll-progress: 0%;
+}
+
+  html { scroll-behavior: smooth; }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--text-primary);
+  color: var(--bg);
+  padding: 8px 16px;
+  z-index: 1000;
+  transition: top 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Scroll progress bar */
+  #progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: var(--scroll-progress);
+    background: #000;
+    z-index: 1000;
+    transition: width 0.05s linear;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    transition: background 0.3s ease, border-bottom 0.3s ease;
+    padding: 0 2rem;
+    border-bottom: 2px solid var(--border);
+  }
+  nav.scrolled {
+    background: var(--bg);
+    border-bottom: 2px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 24px;
+    font-family: var(--serif);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    font-family: var(--mono);
+    font-weight: 400;
+    color: var(--text-secondary);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s ease;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 2px;
+    background: var(--text-primary);
+    transition: width 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-resume-btn {
+    font-size: 12px;
+    font-family: var(--mono);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    background: transparent;
+    border: 2px solid var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 0;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-links a.nav-resume-btn:hover {
+    background: var(--text-primary);
+    color: var(--bg);
+  }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    width: 22px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    border: 2px solid var(--border);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 20px;
+    font-family: var(--serif);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .mobile-close {
+    position: absolute;
+    top: 1.5rem; right: 2rem;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-primary);
+    background: none;
+    border: none;
+    font-family: var(--mono);
+  }
+
+  /* SECTIONS */
+  section { padding: 40px 2rem 40px; }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 40px 2rem 40px;
+  }
+  
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-content { flex: 1; }
+  .hero-image {
+    width: 400px;
+    flex-shrink: 0;
+    height: 550px;
+    border: 2px solid var(--border);
+    border-radius: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(30px);
+    animation: slideInRight 0.6s ease-out 0.5s forwards;
+  }
+  @keyframes slideInRight {
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .hero-eyebrow {
+    font-size: 14px;
+    font-family: var(--mono);
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.6s ease forwards 0.1s;
+  }
+  .hero-h1 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    -webkit-text-stroke: 0.5px var(--text-primary);
+    text-shadow: 0.5px 0 0 var(--text-primary);
+  }
+  .hero-h1 em {
+    font-style: normal;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+  .tw-cursor {
+    animation: blink 0.7s step-end infinite;
+    font-weight: 700;
+    margin-left: 2px;
+  }
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    max-width: 580px;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.7s ease forwards 0.4s;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.7s ease forwards 0.55s;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--text-primary);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 2px solid var(--text-primary);
+    border-radius: 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, box-shadow 0.15s, transform 0.15s;
+  }
+  .btn-primary:hover {
+    background: var(--bg);
+    color: var(--text-primary);
+    box-shadow: 3px 3px 0 var(--text-primary);
+    transform: translate(-2px, -2px);
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 2px solid var(--text-primary);
+    border-radius: 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn-ghost:hover {
+    background: var(--text-primary);
+    color: var(--bg);
+  }
+
+
+  /* RESUME BANNER */
+  #resume-banner {
+    padding: 40px 2rem;
+    margin-bottom: 0;
+  }
+  .resume-banner-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--bg);
+    border: 2px solid var(--text-primary);
+    border-radius: 0;
+    padding: 36px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .resume-banner-text h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+  }
+  .resume-banner-text p {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .resume-banner-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* SECTION HEADER */
+  .section-label {
+    font-size: 11px;
+    font-family: var(--mono);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    background: var(--bg);
+    padding: 6px 14px;
+    display: inline-block;
+    margin-bottom: 12px;
+    border: 2px solid var(--text-primary);
+  }
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+  .section-sub {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin-bottom: 1.25rem;
+  }
+
+  /* WHAT I DO */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    border-radius: 0;
+  }
+  .service-card {
+    background: var(--bg);
+    border: 2px solid var(--text-primary);
+    padding: 2rem;
+    transition: background 0.2s ease;
+    position: relative;
+  }
+  .service-card::before {
+    content: '═══════════════════════';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    background: var(--text-primary);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 4px 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .service-card { padding-top: 2.5rem; }
+  .service-card:hover { background: var(--surface); }
+  .service-icon {
+    font-size: 32px;
+    margin-bottom: 14px;
+    color: var(--text-primary);
+    line-height: 1;
+    display: inline-block;
+  }
+  .service-card:nth-child(1) .service-icon { animation: bounce 1.2s ease-in-out infinite; }
+  .service-card:nth-child(2) .service-icon { animation: wiggle 1.4s ease-in-out infinite 0.1s; }
+  .service-card:nth-child(3) .service-icon { animation: bounce 1.6s ease-in-out infinite 0.2s; }
+  .service-card:nth-child(4) .service-icon { animation: wiggle 1.3s ease-in-out infinite 0.3s; }
+  .service-card:nth-child(5) .service-icon { animation: bounce 1.5s ease-in-out infinite 0.15s; }
+  .service-card:nth-child(6) .service-icon { animation: wiggle 1.2s ease-in-out infinite 0.25s; }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-4px) rotate(-3deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-2px) rotate(2deg); }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    20% { transform: rotate(-5deg) scale(1.05); }
+    40% { transform: rotate(4deg) scale(0.95); }
+    60% { transform: rotate(-3deg) scale(1.02); }
+    80% { transform: rotate(2deg) scale(0.98); }
+  }
+  .service-title {
+    font-size: 15px;
+    font-family: var(--serif);
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-size: 20px;
+  }
+  .service-desc {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  /* WORK */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .project-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    background: var(--bg);
+    border: 2px solid var(--text-primary);
+    border-radius: 0;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s, box-shadow 0.15s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .project-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px 0 var(--text-primary);
+  }
+  .project-thumb {
+    aspect-ratio: 16/9;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid var(--text-primary);
+    cursor: pointer;
+  }
+  .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+  .project-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+.tag-live {
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--text-primary);
+  color: var(--bg);
+  padding: 3px 10px;
+  border-radius: 0;
+  border: 2px solid var(--text-primary);
+}
+  .tag-concept {
+    font-size: 11px;
+    font-family: var(--mono);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: var(--bg);
+    color: var(--text-primary);
+    padding: 3px 10px;
+    border-radius: 0;
+    border: 2px solid var(--text-primary);
+  }
+  .tag-type {
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--text-muted);
+    padding: 3px 10px;
+    border: 1px solid var(--text-muted);
+    border-radius: 0;
+  }
+  .project-title {
+    font-size: 17px;
+    font-family: var(--serif);
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    font-size: 22px;
+  }
+  .project-desc {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 1.25rem;
+  }
+  .project-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--text-primary);
+  }
+  @media (max-width: 768px) {
+    .project-body {
+      display: flex;
+      flex-direction: column;
+    }
+    .project-tags {
+      order: 1;
+    }
+    .project-title {
+      order: 2;
+    }
+    .project-desc {
+      order: 3;
+    }
+    .project-footer {
+      order: 4;
+    }
+    .project-cta-mobile {
+      display: block;
+      order: 5;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: var(--mono);
+      color: var(--text-primary);
+      margin-top: 12px;
+    }
+    .project-footer .project-cta {
+      display: none;
+    }
+  }
+  @media (min-width: 769px) {
+    .project-cta-mobile {
+      display: none;
+    }
+  }
+  .project-role {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .project-cta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: var(--mono);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* PROCESS */
+  .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; gap: 20px; margin-top: 2rem; }
+  .process-step { border: 2px solid var(--border); display: flex; flex-direction: column; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+  .process-step:hover { border-color: var(--text-primary); transform: translate(-2px, -2px); box-shadow: 2px 2px 0 var(--text-primary); }
+  .process-step-img { width: 100%; height: 200px; background: var(--bg-secondary); display: flex; align-items: center; justify-content: center; border-bottom: 2px solid var(--border); position: relative; overflow: hidden; }
+  .process-step-img svg { width: 48px; height: 48px; opacity: 0.4; }
+  .process-step-img::after { content: 'IMAGE PLACEHOLDER'; position: absolute; bottom: 12px; right: 12px; font-family: var(--font-mono); font-size: 9px; color: var(--text-secondary); letter-spacing: 0.05em; }
+  .process-step-img:has(img)::after { display: none; }
+  .process-step-img:has(img) svg { display: none; }
+  .process-step-content { padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+  .process-step-title { font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--text-primary); }
+  .process-step-desc { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .process-steps .process-step:nth-child(4) { grid-column: 1 / 2; }
+  .process-steps .process-step:nth-child(5) { grid-column: 2 / 4; }
+  .process-steps .process-step:nth-child(5) .process-step-img { height: 200px; }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-copy p {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+  .about-copy p strong {
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .about-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .about-link {
+    font-size: 13px;
+    font-family: var(--mono);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 2px solid var(--text-primary);
+    padding-bottom: 2px;
+    transition: color 0.2s ease;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .about-link:hover { color: var(--text-muted); border-color: var(--text-muted); }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 2px solid var(--text-primary);
+    border-radius: 0;
+    overflow: hidden;
+    margin-top: 1.5rem;
+  }
+  .stat-cell {
+    background: var(--bg);
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--text-primary);
+    border-right: 1px solid var(--text-primary);
+  }
+  .stat-cell:nth-child(2n) { border-right: none; }
+  .stat-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .stat-label {
+    font-size: 13px;
+    font-family: var(--mono);
+    color: var(--text-muted);
+    margin-top: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  /* CONTACT */
+  #contact {
+    text-align: center;
+    position: relative;
+    padding: 0 0 2rem;
+  }
+  #contact .container {
+    border: 2px solid var(--border);
+    padding: 100px 4rem;
+  }
+  .contact-heading {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+  .contact-sub {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    background: var(--text-primary);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: 2px solid var(--text-primary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn-white:hover { background: var(--bg); color: var(--text-primary); }
+  .contact-secondary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .contact-secondary span { display: inline; }
+  .contact-secondary a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .contact-secondary a:hover { color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* RESUME PAGE */
+  #resume-page { display: none; }
+  .resume-page-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 2rem;
+  }
+  .resume-back {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 3rem;
+    transition: color 0.2s;
+  }
+  .resume-back:hover { color: var(--text-primary); }
+  .resume-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .resume-name {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+  }
+  .resume-title-line {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+  .resume-contact-info {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: right;
+    line-height: 1.8;
+  }
+  .resume-contact-info a { color: var(--text-muted); text-decoration: none; }
+  .resume-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+  .resume-section-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+  }
+  .resume-summary {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+  .competencies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 2.5rem;
+  }
+  .competency-item {
+    font-size: 12px;
+    font-family: var(--mono);
+    color: var(--text-primary);
+    padding: 7px 12px;
+    background: var(--bg);
+    border: 1px solid var(--text-primary);
+    border-radius: 0;
+  }
+  .job { margin-bottom: 2.5rem; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .job-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  .job-date {
+    font-size: 12px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+  .job-company {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+  }
+  .job ul {
+    list-style: none;
+    padding: 0;
+  }
+  .job ul li {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    padding: 3px 0 3px 16px;
+    position: relative;
+  }
+  .job ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+  }
+  .tools-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-bottom: 2rem;
+  }
+  .tools-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .tools-table td:first-child {
+    font-weight: 500;
+    color: var(--text-primary);
+    width: 180px;
+    white-space: nowrap;
+  }
+  .tools-table td:last-child {
+    font-weight: 300;
+    color: var(--text-secondary);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes dotsForward {
+    from { background-position: 0 0; }
+    to { background-position: 24px 24px; }
+  }
+
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .stat-num[data-typewriter] { animation: blink 0.7s step-end infinite; animation-play-state: paused; }
+  .stat-num[data-typewriter][style*="border-right: 2px"] { animation-play-state: running; }
+
+  /* Subtle retro dot pattern background — moving forward */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image: radial-gradient(circle, #ddd 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.4;
+    animation: dotsForward 3s linear infinite;
+  }
+
+  /* Remove old pixel grid */
+  body {
+    background-image: none;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1023px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .competencies-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 767px) {
+    section { padding: 40px 1.25rem; }
+    #hero { padding: 16px 1.25rem 40px; min-height: 100vh; align-items: center; }
+    .hero-inner { flex-direction: column; gap: 2rem; }
+    .hero-image { width: 100%; height: 240px; align-self: center; }
+    #hero .hero-ctas { margin-bottom: 0; flex-wrap: nowrap; gap: 0.75rem; }
+    #hero .hero-ctas a { padding: 12px 16px; font-size: 12px; }
+    #hero .hero-ctas .btn-primary { padding: 12px 28px; }
+    #resume-banner { padding: 40px 1.25rem; }
+    #contact .container { padding: 40px 1rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .process-steps { grid-template-columns: 1fr; }
+    .process-steps .process-step:nth-child(4) { grid-column: auto; }
+    .process-steps .process-step:nth-child(5) { grid-column: auto; }
+    .process-step-img { height: 160px; }
+    .resume-banner-inner { padding: 24px; flex-direction: column; }
+    .resume-header { flex-direction: column; }
+    .resume-contact-info { text-align: left; }
+    .competencies-grid { grid-template-columns: 1fr 1fr; }
+    .contact-secondary { flex-direction: column; }
+    .contact-secondary span { display: none; }
+  }
+</style>
+</head>
+<body>
+  <!-- Skip to main content for keyboard users -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Main content landmark -->
+  <main id="main-content">
+
+<div id="progress-bar"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()" aria-label="Close menu">✕</button>
+  <a href="#work" onclick="closeMobileMenu()">Work</a>
+  <a href="#process" onclick="closeMobileMenu()">Process</a>
+  <a href="#services" onclick="closeMobileMenu()">What I Do</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="#" onclick="showResumePage(); closeMobileMenu();" style="margin-top:1rem; font-size:14px; font-family:var(--mono); font-weight:700; letter-spacing:0.05em; text-transform:uppercase; border:2px solid var(--text-primary); padding:10px 24px; border-radius:0; color:var(--text-primary);">Resume ↓</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showHomePage()">JB</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#services">What I Do</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" class="nav-resume-btn" onclick="showResumePage(); return false;">Resume ↓</a></li>
+    </ul>
+<div class="hamburger" id="hamburger" onclick="openMobileMenu()" aria-label="Open menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</div>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home-page">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Senior UI/UX Designer · AI Product Design</p>
+        <h1 class="hero-h1" id="hero-typewriter"></h1>
+        <p class="hero-sub">10+ years in product design — PRDs to prototypes to dev handoff. Now incorporating AI into every step: faster wireframes, smarter systems, prompt-to-prototype workflows.</p>
+        <div class="hero-ctas">
+          <a href="mailto:johnmbuladaco@gmail.com" class="btn-primary">Work With Me</a>
+          <a href="#work" class="btn-ghost">See My Work</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="assets/images/john-buladaco-hero-portrait.webp" alt="John Buladaco — Senior UI/UX Designer specializing in AI product design and generative AI interfaces" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="container">
+      <p class="section-label reveal">Selected Work</p>
+      <h2 class="section-heading reveal reveal-delay-1">Projects that shipped.</h2>
+      <p class="section-sub reveal reveal-delay-2">A mix of live products and concept projects — SaaS, AI tools, mobile, and web.</p>
+      <div class="work-grid">
+
+        <a href="case-study-matatag.html" class="project-card reveal" aria-label="MATATAG — Streamlining Lesson Planning for Philippine Public School Teachers">
+          <div class="project-thumb" style="background-image:radial-gradient(circle,#b0b0b0 1px,transparent 1px);background-size:16px 16px;background-color:#e8e8e8;display:flex;align-items:center;justify-content:center;padding:24px;">
+<div class="thumb-cover" style="width:85%;max-width:500px;border-radius:8px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.12);filter:grayscale(100%);transition:opacity 0.3s;position:relative;z-index:1;">
+<div style="background:#e0e0e0;padding:8px 12px;display:flex;align-items:center;gap:6px;border-bottom:1px solid #ccc;">
+<span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+<span style="width:10px;height:10px;border-radius:50%;background:#ffbd2e;display:inline-block;"></span>
+<span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+<span style="flex:1;margin-left:8px;background:#fff;border-radius:4px;height:18px;display:block;"></span>
+</div>
+<img src="assets/images/mph5o6hf-Screenshot-2026-05-23-at-12.43.40-AM.webp" alt="MATATAG AI Lesson Planner interface" loading="lazy" style="width:100%;display:block;">
+</div>
+<video aria-label="MATATAG AI lesson planner demo" class="thumb-video" src="assets/videos/matatag-hero-demo.mp4" muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;opacity:0;transition:opacity 0.3s;border-radius:0;z-index:2;"></video>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag-concept">Concept Project</span>
+              <span class="tag-type">AI</span>
+              <span class="tag-type">EdTech</span>
+              <span class="tag-type">Web App</span>
+            </div>
+            <span class="project-cta-mobile">View Case Study →</span>
+            <h3 class="project-title">Streamlining Lesson Planning for Philippine Public School Teachers</h3>
+            <p class="project-desc">An AI-powered tool concept that helps teachers generate structured, curriculum-aligned lesson plans in minutes — reducing planning time and letting teachers focus on teaching.</p>
+            <div class="project-footer">
+              <span class="project-role">Product Designer · AI UX</span>
+              <span class="project-cta">View Case Study →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="case-study-e27.html" class="project-card reveal reveal-delay-1" aria-label="e27 AI Assistant — Reducing Discovery Friction from 3 Steps to Zero">
+          <div class="project-thumb">
+<iframe class="thumb-cover" src="mpe1ysqt-nexus_portfolio_cover.html" style="position:absolute;top:50%;left:50%;width:200%;height:200%;transform:translate(-50%,-50%) scale(0.5);border:none;pointer-events:none;transition:opacity 0.3s, filter 0.3s;filter:grayscale(100%);" loading="lazy" aria-hidden="true"></iframe>
+<iframe class="thumb-video" src="mpf8mc1z-nexus_cover_final-_1_.html" style="position:absolute;top:50%;left:50%;width:200%;height:200%;transform:translate(-50%,-50%) scale(0.5);border:none;pointer-events:none;opacity:0;transition:opacity 0.3s;" loading="lazy" aria-hidden="true"></iframe>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag-live">Live Project</span>
+              <span class="tag-type">AI</span>
+              <span class="tag-type">SaaS</span>
+              <span class="tag-type">Conversational UX</span>
+            </div>
+            <span class="project-cta-mobile">View Case Study →</span>
+            <h3 class="project-title">Reducing Discovery Friction from 3 Steps to Zero</h3>
+            <p class="project-desc">Redesigned e27's AI discovery assistant from a 3-step menu (EVI) into an instant daily briefing (NEXUS). Surfaced personalised news, trending startups, and featured events on first open — zero clicks to value.</p>
+            <div class="project-footer">
+              <span class="project-role">Senior Product Designer · AI UX</span>
+              <span class="project-cta">View Case Study →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="case-study-pawbook.html" class="project-card reveal" aria-label="PawBook — Simplifying Appointment Booking for Solo Pet Groomers">
+          <div class="project-thumb">
+<img class="thumb-cover" src="assets/images/pawbook-cover-illustration.webp" alt="PawBook pet grooming booking app — greyscale cover illustration" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:grayscale(100%);transition:opacity 0.3s;" loading="lazy">
+<video aria-label="PawBook pet grooming booking app demo" class="thumb-video" src="assets/videos/pawbook-hero-demo.mp4" muted playsinline loop preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.3s;"></video>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag-concept">Concept Project</span>
+              <span class="tag-type">Mobile</span>
+              <span class="tag-type">iOS</span>
+              <span class="tag-type">Booking UX</span>
+            </div>
+            <span class="project-cta-mobile">View Case Study →</span>
+            <h3 class="project-title">Simplifying Appointment Booking for Solo Pet Groomers</h3>
+            <p class="project-desc">A mobile booking app for solo pet groomers — replacing WhatsApp and paper diaries with dual booking paths (manual + WhatsApp bot), an approval gate, daily dashboard assistant, and automated SMS follow-ups. Conceived and built end-to-end as an AI-augmented concept project.</p>
+            <div class="project-footer">
+              <span class="project-role">Product Designer · Mobile UI/UX · AI UX</span>
+              <span class="project-cta">View Case Study →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="case-study-kindly.html" class="project-card reveal reveal-delay-1" aria-label="Kindly Studio — Scaling Agency Output from 1 to 10">
+          <div class="project-thumb">
+<img src="assets/images/mpjyzp6u-ChatGPT-Image-May-25_-2026_-12_06_30-AM.webp" alt="Kindly Studio AI-powered agency automation platform" loading="lazy" class="thumb-cover" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;filter:grayscale(100%);transition:opacity 0.3s;">
+<video src="assets/videos/kindly-hero-demo.mp4" class="thumb-video" muted playsinline preload="metadata" aria-label="Kindly Studio dashboard demo" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;opacity:0;transition:opacity 0.3s;"></video>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag-live">Live Project</span>
+              <span class="tag-type">AI</span>
+              <span class="tag-type">UX Audit</span>
+              <span class="tag-type">Agentic AI</span>
+            </div>
+            <span class="project-cta-mobile">View Case Study →</span>
+            <h3 class="project-title">Scaling Agency Output from 1 to 10</h3>
+            <p class="project-desc">Built a full agency automation system — lead gen across 4 countries, AI-personalised outreach, a 16-agent conversion-first website builder, and a dashboard to run it all. One person, output of ten.</p>
+            <div class="project-footer">
+              <span class="project-role">Founder · Product Designer · AI Workflow</span>
+              <span class="project-cta">View Case Study →</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I DESIGN -->
+  <section id="process">
+    <div class="container">
+      <p class="section-label reveal">Process</p>
+      <h2 class="section-heading reveal reveal-delay-1">How I Design with AI, Figma, and Code</h2>
+      <p class="section-sub reveal reveal-delay-2">I move fast without sacrificing quality by combining product thinking, AI, and a solid design system. This keeps you and your engineers aligned from PRD to working product.</p>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="process-step-img"><img src="assets/gifs/mpf82ymf-prd_scan_centered.gif" loading="lazy" alt="PRD and product requirements definition process for AI product design" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="process-step-content">
+            <h4 class="process-step-title">Understand & Frame the Problem</h4>
+            <p class="process-step-desc">PRD with constraints, risks, and success metrics upfront.</p>
+          </div>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-img"><img src="assets/gifs/mpdspvhk-figma_mobile_loop.gif" loading="lazy" alt="AI-accelerated first draft using generative AI and design system" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="process-step-content">
+            <h4 class="process-step-title">AI‑Accelerated First Draft</h4>
+            <p class="process-step-desc">AI generates an interactive first draft from the PRD using your design system.</p>
+          </div>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-img"><img src="assets/gifs/mpdsrnxm-figma_cursor_loop.gif" loading="lazy" alt="Refining UI/UX design in Figma with AI tools and design system components" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="process-step-content">
+            <h4 class="process-step-title">Refine the Experience in Figma</h4>
+            <p class="process-step-desc">Iterate layouts, states, and interactions with real components and stakeholder feedback.</p>
+          </div>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-img"><img src="assets/gifs/mpf7s9nr-claude_code_mobile_build-_1_.gif" loading="lazy" alt="Building working prototype with AI-powered coding for product validation" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="process-step-content">
+            <h4 class="process-step-title">Build a Working Prototype</h4>
+            <p class="process-step-desc">AI-powered coding turns refined flows into a working prototype to validate edge cases early.</p>
+          </div>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-img"><img src="assets/gifs/pipeline_8bit_horizontal.gif" loading="lazy" alt="Automated dev handoff pipeline from Figma to code using AI tools" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="process-step-content">
+            <h4 class="process-step-title">Automated Dev Handoff</h4>
+            <p class="process-step-desc">MCP agent auto-generates spec sheets from Figma — measurements, tokens, states, and notes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME BANNER -->
+  <div id="resume-banner" class="reveal">
+    <div class="resume-banner-inner">
+      <div class="resume-banner-text">
+        <h3>Want the full picture?</h3>
+        <p>Download my resume or view it online — everything from PRDs to pixels.</p>
+      </div>
+      <div class="resume-banner-btns">
+        <a href="#" class="btn-primary" onclick="return false;">↓ Download Resume</a>
+        <a href="#" class="btn-ghost" onclick="showResumePage(); return false;">→ View Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT I DO -->
+  <section id="services">
+    <div class="container">
+      <p class="section-label reveal">What I Do</p>
+      <h2 class="section-heading reveal reveal-delay-1">The full product design journey.</h2>
+      <p class="section-sub reveal reveal-delay-2">From the first brief to the final handoff — I cover everything in between.</p>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="6" width="24" height="20" rx="0"></rect><line x1="4" y1="12" x2="28" y2="12"></line><line x1="8" y1="16" x2="20" y2="16"></line><line x1="8" y1="20" x2="16" y2="20"></line><rect x="22" y="15" width="4" height="4"></rect></svg></div>
+          <div class="service-title">PRD &amp; Product Thinking</div>
+          <p class="service-desc">I work with CEOs and product leads to define goals, user needs, success metrics, and scope — before a single wireframe is drawn.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 26L14 6"></path><path d="M14 6L16 8L14 10"></path><rect x="18" y="14" width="10" height="14" rx="0"></rect><line x1="18" y1="20" x2="28" y2="20"></line><circle cx="23" cy="17" r="1" fill="currentColor"></circle></svg></div>
+          <div class="service-title">Wireframing & Prototyping</div>
+          <p class="service-desc">Low to high fidelity, fast. I use Figma AI, Claude Code, and AI-accelerated prototyping to go from concept to interactive prototype in hours, not weeks.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="10" height="10"></rect><rect x="18" y="4" width="10" height="10"></rect><rect x="4" y="18" width="10" height="10"></rect><rect x="18" y="18" width="10" height="10"></rect><line x1="9" y1="14" x2="9" y2="18"></line><line x1="14" y1="9" x2="18" y2="9"></line></svg></div>
+          <div class="service-title">UI Design & Design Systems</div>
+          <p class="service-desc">Clean, consistent interfaces with reusable components — built to scale with your SaaS platform. 10+ design systems shipped across AI products and web apps.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="8" width="12" height="16" rx="0"></rect><rect x="18" y="8" width="12" height="16" rx="0"></rect><line x1="14" y1="14" x2="18" y2="14"></line><line x1="14" y1="18" x2="18" y2="18"></line><line x1="16" y1="14" x2="16" y2="18"></line></svg></div>
+          <div class="service-title">Dev Handoff &amp; Collaboration</div>
+          <p class="service-desc">I speak developer. Tight specs, organized Figma files, and direct collaboration with engineers to make sure what gets built matches what was designed.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="20" height="16" rx="0"></rect><line x1="6" y1="8" x2="26" y2="8"></line><circle cx="9" cy="6" r="1" fill="currentColor"></circle><circle cx="12" cy="6" r="1" fill="currentColor"></circle><path d="M12 14L14 16L12 18"></path><line x1="16" y1="14" x2="22" y2="14"></line><line x1="16" y1="18" x2="20" y2="18"></line><line x1="10" y1="24" x2="22" y2="24"></line><line x1="14" y1="20" x2="18" y2="20"></line><line x1="16" y1="20" x2="16" y2="24"></line></svg></div>
+          <div class="service-title">Generative AI & LLM Interface Design</div>
+          <p class="service-desc">I design AI-driven product experiences — generative AI interfaces, LLM-powered tools, prompt UX, and conversational AI flows that feel intuitive, not robotic.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="4" width="16" height="24" rx="2"></rect><line x1="8" y1="8" x2="24" y2="8"></line><line x1="8" y1="24" x2="24" y2="24"></line><circle cx="16" cy="26" r="1" fill="currentColor"></circle><rect x="11" y="11" width="10" height="10" rx="0"></rect></svg></div>
+          <div class="service-title">Mobile Design — iOS &amp; Android</div>
+          <p class="service-desc">Native mobile UX following Apple HIG and Material Design guidelines. Platform-native feel on both, consistent product identity across both.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <p class="section-label reveal">About</p>
+          <h2 class="section-heading reveal reveal-delay-1">10+ years of design, start to finish.</h2>
+          <div class="reveal reveal-delay-2">
+            <p class="about-copy" style="margin-top:1.5rem">
+              </p><p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem">I'm <strong>John</strong> — a Senior UI/UX Designer with 10+ years in product design across SaaS platforms, web apps, and mobile.</p>
+              <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem">I've worked directly with CEOs, product leads, and dev teams across startups and growing companies. I handle the full design journey: from PRDs and research through to UI design, design systems, and automated dev handoff.</p>
+              <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem">I specialize in generative AI interfaces, LLM-powered products, and AI-accelerated design workflows using Figma and AI tools. <strong>The strategy, the decisions, the craft — that's still all human.</strong></p>
+              <p style="font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.75">Based in <strong>Davao, Philippines</strong>. Available for remote UI/UX Designer roles and freelance AI product design projects worldwide.</p>
+            <p></p>
+            <div class="about-links">
+              <a href="https://linkedin.com/in/johnbuladaco" target="_blank" class="about-link">LinkedIn ↗</a>
+              <a href="https://kindly-studio.com" target="_blank" class="about-link">kindly-studio.com ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="about-stats">
+            <div class="stat-cell">
+              <div class="stat-num" data-count="10" data-suffix="+">0</div>
+              <div class="stat-label">Years designing</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-num" data-count="20" data-suffix="+">0</div>
+              <div class="stat-label">Projects shipped</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-num" data-typewriter="SaaS">—</div>
+              <div class="stat-label">Core speciality</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-num" data-count="10" data-suffix="+">0</div>
+              <div class="stat-label">Design Systems built</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="contact-heading reveal">Let's build something together.</h2>
+      <p class="contact-sub reveal reveal-delay-1">Whether you're hiring, looking for a freelance designer, or just want to talk product — I'd love to hear from you.</p>
+      <a href="mailto:johnmbuladaco@gmail.com" class="btn-white reveal reveal-delay-2">Work With Me</a>
+      <div class="contact-secondary reveal reveal-delay-3">
+        <a href="https://linkedin.com/in/johnbuladaco" target="_blank">LinkedIn</a>
+        <span>·</span>
+        <a href="https://kindly-studio.com" target="_blank">kindly-studio.com</a>
+        <span>·</span>
+        <a href="mailto:johnmbuladaco@gmail.com">johnmbuladaco@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+<footer>
+     <p>© 2025 John Buladaco · Senior Product Designer · Remote — Davao, Philippines</p>
+   </footer>
+
+ </div><!-- end home-page -->
+<footer class="sr-only" aria-hidden="true">
+  <p>John Buladaco is a Senior UI/UX Designer with extensive experience in AI product design, generative AI interfaces, and SaaS AI platforms. Specializing in AI-driven product experiences, LLM interface design, prompt designer UX, and design systems. Skilled in Figma AI, AI tools, large language models (LLM), and AI-accelerated design workflows. Available as a remote UI/UX Designer for AI products, SaaS platforms, and generative AI startups.</p>
+</footer>
+</main>
+ <!-- RESUME PAGE -->
+ <div id="resume-page">
+   <div class="resume-page-inner">
+     <a href="#" class="resume-back" onclick="showHomePage(); return false;">← Back to Portfolio</a>
+
+     <div class="resume-header">
+       <div>
+         <div class="resume-name">John Buladaco</div>
+         <div class="resume-title-line">Senior Product Designer (UI/UX) · AI-Driven SaaS &amp; High-Conversion Web</div>
+       </div>
+       <div class="resume-contact-info">
+         <div>📍 Remote – Davao, Philippines</div>
+         <div><a href="mailto:johnmbuladaco@gmail.com">johnmbuladaco@gmail.com</a></div>
+         <div><a href="https://linkedin.com/in/johnbuladaco" target="_blank">linkedin.com/in/johnbuladaco</a></div>
+       </div>
+     </div>
+
+     <a href="#" class="btn-primary" onclick="return false;" style="margin-bottom:2.5rem; display:inline-flex;">↓ Download Resume PDF</a>
+
+     <hr class="resume-divider">
+
+     <div class="resume-section-title">Professional Summary</div>
+     <p class="resume-summary">Senior Product Designer with 10+ years delivering intuitive, high-impact products across SaaS, web, and mobile. Known for translating ambiguous business goals into clear, user-centered designs that measurably improve conversion, retention, and engagement. Early adopter of AI-augmented design workflows — applying Agentic AI, workflow automation, and AI-driven UX to accelerate research, persona development, PRD writing, and prototyping, while keeping strategic product decisions and design ownership firmly in hand.</p>
+
+     <hr class="resume-divider">
+
+     <div class="resume-section-title">Core Competencies</div>
+     <div class="competencies-grid">
+       <span class="competency-item">Product Design &amp; UX Strategy</span>
+       <span class="competency-item">AI-Augmented Design Workflows</span>
+       <span class="competency-item">Design Systems &amp; Platform UX</span>
+       <span class="competency-item">AI-Driven SaaS UX</span>
+       <span class="competency-item">High-Conversion Web Design</span>
+       <span class="competency-item">UX Audits &amp; Redesign</span>
+       <span class="competency-item">Agentic AI &amp; Workflow Automation</span>
+       <span class="competency-item">Conversational &amp; Chat UX</span>
+       <span class="competency-item">Mobile-First UX</span>
+       <span class="competency-item">Figma + AI Wireframing</span>
+       <span class="competency-item">Claude Code + Figma Make</span>
+       <span class="competency-item">Remote Usability Testing</span>
+     </div>
+
+     <hr class="resume-divider">
+
+     <div class="resume-section-title">Professional Experience</div>
+
+     <div class="job">
+       <div class="job-header">
+         <div class="job-title">Founder &amp; Senior Product Designer</div>
+         <div class="job-date">Jul 2025 – Present</div>
+       </div>
+       <div class="job-company">Kindly-Studio · Remote · <a href="https://kindly-studio.com" target="_blank" style="color:var(--text-muted)">kindly-studio.com</a></div>
+       <ul>
+         <li>Founded an AI-centric UX audit &amp; website builder targeting pet-business owners, reducing their path from concept to high-converting site.</li>
+         <li>Designed and deployed Agentic AI workflows automating lead research, UX content generation, email outreach, and social media scheduling.</li>
+         <li>Applied AI-driven prototyping (Claude Code + Figma Make) to transform complex pet-business booking flows into conversion-optimized web experiences.</li>
+         <li>Collaborated directly with small business founders to surface real user pain points, then validated solutions with lightweight usability testing.</li>
+       </ul>
+     </div>
+
+     <div class="job">
+       <div class="job-header">
+         <div class="job-title">Senior Product Designer</div>
+         <div class="job-date">2022 – Present</div>
+       </div>
+       <div class="job-company">e27 / Optimatic · Remote</div>
+       <ul>
+         <li>Led end-to-end UX design for a high-growth startup platform, owning information architecture, task flows, and data-informed experiments.</li>
+         <li>Integrated AI-assisted tools throughout the design cycle — accelerating research synthesis, persona generation, and usability testing.</li>
+         <li>Worked directly with founders, product leadership, and engineering to align UX decisions with business KPIs and technical constraints.</li>
+         <li>Drove measurable improvements in onboarding completion and retention through iterative, evidence-based design updates.</li>
+       </ul>
+     </div>
+
+     <div class="job">
+       <div class="job-header">
+         <div class="job-title">Mobile Designer — iOS &amp; Android (UI/UX)</div>
+         <div class="job-date">2019 – 2021</div>
+       </div>
+       <div class="job-company">tawk.to · Remote</div>
+       <ul>
+         <li>Designed and shipped native mobile UX for a global live-chat SaaS platform serving millions of users, following Apple HIG and Material Design guidelines.</li>
+         <li>Owned end-to-end mobile UI across iOS and Android — chat widgets, push notification flows, and in-app messaging.</li>
+         <li>Improved mobile onboarding, chat-widget usability, and dashboard UX, contributing to higher user engagement and reduced churn.</li>
+         <li>Collaborated tightly with iOS and Android engineers to align component specs, interaction patterns, and edge cases.</li>
+       </ul>
+     </div>
+
+     <hr class="resume-divider">
+
+     <div class="resume-section-title">Tools &amp; Stack</div>
+     <table class="tools-table">
+       <tbody><tr><td>AI &amp; Research</td><td>Claude, Perplexity, AI-notebook tools, AI-research tools</td></tr>
+       <tr><td>Design &amp; Prototyping</td><td>Figma, UX Pilot / Buddy-style AI wireframing, Claude Code, Figma Make</td></tr>
+       <tr><td>Documentation</td><td>Notion, Confluence (AI-assisted PRDs, specs, roadmaps)</td></tr>
+<tr><td>Testing &amp; Analytics</td><td>Remote usability testing, Hotjar-style session analysis, AI-assisted behavior analysis</td></tr>
+<tr><td>Automation</td><td>Agentic AI pipelines (scraping, email outreach, lead gen, social media automation)</td></tr>
+</tbody></table>
+
+<hr class="resume-divider">
+<p style="font-size:13px;color:var(--text-muted);text-align:center;padding-bottom:2rem">Available for remote roles worldwide · Open to full-time, contract, and fractional engagements</p>
+</div>
+</div><!-- end resume-page -->
+
+<script>
+// Scroll progress with debounce to reduce repaints
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    document.documentElement.style.setProperty('--scroll-progress', progress + '%');
+
+    // Nav scroll state
+    const nav = document.getElementById('navbar');
+    nav.classList.toggle('scrolled', scrollTop > 20);
+  }, 16); // ~60fps
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Count-up animation on scroll
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const count = el.dataset.count;
+      const text = el.dataset.text;
+      const suffix = el.dataset.suffix || '';
+      if (count) {
+        let start = 0;
+        const end = parseInt(count);
+        const duration = 1200;
+        const startTime = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * end) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      } else if (text) {
+        el.textContent = text;
+      }
+      const tw = el.dataset.typewriter;
+      if (tw) {
+        el.textContent = '';
+        el.style.borderRight = '2px solid var(--text-primary)';
+        let i = 0;
+        const type = () => {
+          if (i < tw.length) { el.textContent += tw[i]; i++; setTimeout(type, 150); }
+          else { setTimeout(() => { el.style.borderRight = 'none'; }, 600); }
+        };
+        setTimeout(type, 300);
+      }
+      statObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-num[data-count], .stat-num[data-text], .stat-num[data-typewriter]').forEach(el => statObserver.observe(el));
+
+// Hero typewriter
+(function() {
+  const lines = ["Hi, I'm John.", 'I take products from zero to shipped —', 'human-led design, AI-accelerated.'];
+  const el = document.getElementById('hero-typewriter');
+  let lineIdx = 0, charIdx = 0;
+  function type() {
+    if (lineIdx >= lines.length) { el.querySelector('.tw-cursor').remove(); return; }
+    if (charIdx === 0) {
+      const span = document.createElement(lineIdx === 1 ? 'em' : 'span');
+      span.className = 'tw-line';
+      if (lineIdx > 0) el.appendChild(document.createElement('br'));
+      el.appendChild(span);
+    }
+    const spans = el.querySelectorAll('.tw-line');
+    const cur = spans[spans.length - 1];
+    cur.textContent = lines[lineIdx].slice(0, charIdx + 1);
+    // move cursor after current line
+    let cursor = el.querySelector('.tw-cursor');
+    if (!cursor) { cursor = document.createElement('span'); cursor.className = 'tw-cursor'; cursor.textContent = '█'; }
+    cur.after(cursor);
+    charIdx++;
+    if (charIdx >= lines[lineIdx].length) { lineIdx++; charIdx = 0; setTimeout(type, 72); }
+    else { setTimeout(type, 15); }
+  }
+  type();
+})();
+
+// Page routing
+function showResumePage() {
+  document.getElementById('home-page').style.display = 'none';
+  document.getElementById('resume-page').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function showHomePage() {
+  document.getElementById('resume-page').style.display = 'none';
+  document.getElementById('home-page').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+// Mobile menu
+function openMobileMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileMenu.classList.add('open');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  document.getElementById('hamburger').setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+  // Trap focus in mobile menu
+  const focusableElements = mobileMenu.querySelectorAll('a, button');
+  const firstFocusable = focusableElements[0];
+  const lastFocusable = focusableElements[focusableElements.length - 1];
+  
+  mobileMenu.addEventListener('keydown', function trapFocus(e) {
+    if (e.key === 'Tab') {
+      if (e.shiftKey) { // shift + tab
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable.focus();
+        }
+      } else { // tab
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable.focus();
+        }
+      }
+    }
+    // Escape to close menu
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+    }
+  });
+  
+  // Focus first element when menu opens
+  setTimeout(() => {
+    firstFocusable.focus();
+  }, 100);
+}
+
+function closeMobileMenu() {
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileMenu.classList.remove('open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  // Return focus to hamburger button
+  document.getElementById('hamburger').focus();
+}
+
+// Hover reveal - triggers on entire card
+document.querySelectorAll('.project-card').forEach(card => {
+  const overlay = card.querySelector('.thumb-video');
+  const cover = card.querySelector('.thumb-cover');
+  if (!overlay) return;
+  card.addEventListener('mouseenter', () => {
+    overlay.style.opacity = '1';
+    if (cover) cover.style.opacity = '0';
+    if (overlay.play) { overlay.currentTime = 0; overlay.play(); }
+  });
+  card.addEventListener('mouseleave', () => {
+    overlay.style.opacity = '0';
+    if (cover) cover.style.opacity = '1';
+    if (overlay.pause) overlay.pause();
+  });
+});
+
+</script>
+
+
+</body></html>

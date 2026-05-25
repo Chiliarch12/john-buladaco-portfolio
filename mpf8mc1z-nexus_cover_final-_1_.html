@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus — Portfolio Cover</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E8E7E3;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .cover {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #E8E7E3;
+    border-radius: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .dot-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, #B0AEA8 1.2px, transparent 1.2px);
+    background-size: 20px 20px;
+    background-position: 10px 10px;
+  }
+
+  .cross {
+    position: absolute;
+    pointer-events: none;
+  }
+  .cross::before, .cross::after {
+    content: ''; position: absolute; background: #A8A6A0;
+  }
+  .cross::before { width: 14px; height: 1.5px; top: 5px; left: -1px; }
+  .cross::after  { width: 1.5px; height: 14px; left: 5px; top: -1px; }
+
+  /* Phone is scaled down to fit fully inside the cover */
+  .phone-wrap {
+    transform: scale(0.72);
+    transform-origin: center center;
+    flex-shrink: 0;
+    z-index: 2;
+  }
+
+  .phone {
+    width: 340px;
+    font-family: 'Space Grotesk', sans-serif;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 8px 0 #C0BEB8, 0 0 0 1px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+
+  .ph-header {
+    background: #0D0D14;
+    padding: 20px 18px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+  }
+  .ph-icon {
+    width: 46px; height: 46px;
+    background: #2563EB;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .ph-icon svg { width: 26px; height: 26px; }
+  .ph-brand { flex: 1; }
+  .ph-name {
+    color: #fff; font-size: 16px; font-weight: 700; letter-spacing: 0.04em;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .live { width: 8px; height: 8px; background: #3B82F6; border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .ph-sub { color: #3B82F6; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; margin-top: 3px; }
+  .ph-x { color: #4A4A4A; font-size: 22px; line-height: 1; }
+
+  .ph-body { background: #F4F4F6; padding: 22px 18px 24px; }
+
+  .greeting { margin-bottom: 22px; opacity: 0; }
+  .g-title { font-size: 26px; font-weight: 700; color: #0D0D14; }
+  .g-sub   { font-size: 13px; color: #909090; margin-top: 4px; }
+
+  .sec-wrap { margin-bottom: 14px; opacity: 0; }
+  .sec-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .sec-title { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 700; color: #0D0D14; }
+  .sec-bar { width: 3px; height: 18px; background: #2563EB; border-radius: 2px; flex-shrink: 0; }
+  .inv-badge {
+    background: #EEF2FF; color: #2563EB;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.07em;
+    padding: 5px 10px; border-radius: 20px;
+  }
+
+  .icard {
+    background: #fff;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 9px;
+    display: flex; align-items: center; gap: 13px;
+    border: 0.5px solid #E4E4E6;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .iicon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: #F0F4FF;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .itext { flex: 1; }
+  .icat  { font-size: 9px; font-weight: 700; letter-spacing: 0.09em; margin-bottom: 4px; }
+  .ititle { font-size: 13.5px; font-weight: 600; color: #0D0D14; line-height: 1.35; }
+  .chev  { color: #CACACA; font-size: 16px; flex-shrink: 0; }
+
+  .show-more {
+    border: 1.5px dashed #D4D4D4;
+    border-radius: 13px;
+    text-align: center; padding: 12px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.09em; color: #AFAFAF;
+    margin: 4px 0;
+    opacity: 0;
+  }
+
+  .scard {
+    background: #fff;
+    border-radius: 14px;
+    padding: 13px 16px;
+    margin-bottom: 9px;
+    display: flex; align-items: center; gap: 13px;
+    border: 0.5px solid #E4E4E6;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .slogo { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .sinfo { flex: 1; min-width: 0; }
+  .scat  { font-size: 9px; font-weight: 700; color: #2563EB; letter-spacing: 0.09em; }
+  .sname { font-size: 14px; font-weight: 700; color: #0D0D14; }
+  .sdesc { font-size: 11px; color: #AFAFAF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .plus  {
+    width: 30px; height: 30px; border-radius: 9px;
+    background: #EEF2FF; color: #2563EB;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 300; flex-shrink: 0;
+  }
+
+  .cursor-svg {
+    position: absolute;
+    bottom: 28%;
+    right: 18%;
+    width: 24px; height: 30px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="dot-grid"></div>
+
+  <div class="cross" style="left:5%;top:8%"></div>
+  <div class="cross" style="left:89%;top:7%"></div>
+  <div class="cross" style="left:4%;top:46%"></div>
+  <div class="cross" style="left:93%;top:50%"></div>
+  <div class="cross" style="left:9%;top:84%"></div>
+  <div class="cross" style="left:89%;top:82%"></div>
+  <div class="cross" style="left:50%;top:5%"></div>
+  <div class="cross" style="left:50%;top:93%"></div>
+  <div class="cross" style="left:20%;top:60%"></div>
+  <div class="cross" style="left:79%;top:62%"></div>
+  <div class="cross" style="left:14%;top:24%"></div>
+  <div class="cross" style="left:83%;top:26%"></div>
+
+  <div class="phone-wrap">
+    <div class="phone" id="phone">
+      <div class="ph-header" id="hdr">
+        <div class="ph-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2"/>
+            <rect x="9" y="9" width="6" height="6" rx="1"/>
+            <line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/>
+            <line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/>
+            <line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/>
+            <line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/>
+          </svg>
+        </div>
+        <div class="ph-brand">
+          <div class="ph-name">NEXUS <div class="live"></div></div>
+          <div class="ph-sub">STARTUP INTELLIGENCE</div>
+        </div>
+        <div class="ph-x">×</div>
+      </div>
+
+      <div class="ph-body">
+        <div class="greeting" id="greet">
+          <div class="g-title">Good morning!</div>
+          <div class="g-sub">Your daily ecosystem brief is ready.</div>
+        </div>
+
+        <div class="sec-wrap" id="sec1">
+          <div class="sec-head">
+            <div class="sec-title"><div class="sec-bar"></div>Insights for You</div>
+            <div class="inv-badge">INVESTOR VIEW</div>
+          </div>
+          <div class="icard" id="ic1">
+            <div class="iicon">📈</div>
+            <div class="itext">
+              <div class="icat" style="color:#2563EB">STARTUP GROWTH</div>
+              <div class="ititle">How to Scale from Seed to Series A</div>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="icard" id="ic2">
+            <div class="iicon">🏆</div>
+            <div class="itext">
+              <div class="icat" style="color:#B45309">MILESTONE</div>
+              <div class="ititle">Echelon Summit reaches 10,000 Attendees</div>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="icard" id="ic3">
+            <div class="iicon">💰</div>
+            <div class="itext">
+              <div class="icat" style="color:#16A34A">FUNDING</div>
+              <div class="ititle">Wavemaker Partners closes $150M Fund for SEA</div>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="show-more" id="showmore">SHOW MORE INSIGHTS ›</div>
+        </div>
+
+        <div class="sec-wrap" id="sec2">
+          <div class="sec-head">
+            <div class="sec-title"><div class="sec-bar"></div>Trending Startups</div>
+          </div>
+          <div class="scard" id="sc1">
+            <div class="slogo" style="background:#E8F5E9">🤖</div>
+            <div class="sinfo">
+              <div class="scat">ARTIFICIAL INTELLIGENCE</div>
+              <div class="sname">Artificial Next</div>
+              <div class="sdesc">Innovative AI solutions for...</div>
+            </div>
+            <div class="plus">+</div>
+          </div>
+          <div class="scard" id="sc2">
+            <div class="slogo" style="background:#E3F0FF">⚡</div>
+            <div class="sinfo">
+              <div class="scat">ARTIFICIAL INTELLIGENCE</div>
+              <div class="sname">Artificial Flow</div>
+              <div class="sdesc">Innovative AI solutions for...</div>
+            </div>
+            <div class="plus">+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="cursor-svg" id="cur" viewBox="0 0 22 28" fill="none">
+    <path d="M1 1L1 20L5.5 14.5L9 23L12 21.5L8.5 13L14 13Z" fill="#0D0D14" stroke="#0D0D14" stroke-width="0.5"/>
+    <path d="M2.5 3.5L2.5 17L6.5 12L9.8 20L11 19.5L7.5 11.5L12 11.5Z" fill="white"/>
+  </svg>
+</div>
+
+<script>
+  const ids = ['phone','hdr','greet','sec1','sec2','ic1','ic2','ic3','showmore','sc1','sc2','cur'];
+  const els = {};
+  ids.forEach(id => els[id] = document.getElementById(id));
+
+  function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  function animEl(el, from, to, duration) {
+    return new Promise(resolve => {
+      el.style.transition = 'none';
+      Object.assign(el.style, from);
+      el.offsetHeight;
+      el.style.transition = `all ${duration}ms cubic-bezier(0.34,1.1,0.64,1)`;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        Object.assign(el.style, to);
+        setTimeout(resolve, duration);
+      }));
+    });
+  }
+
+  function reset() {
+    ids.forEach(id => { els[id].style.transition = 'none'; });
+    Object.assign(els.phone.style, {opacity:'0', transform:'translateY(24px) scale(0.97)'});
+    ['hdr','greet','sec1','sec2','showmore'].forEach(id => els[id].style.opacity = '0');
+    els.cur.style.opacity = '0';
+    els.cur.style.transform = 'translate(50px,40px)';
+    ['ic1','ic2','ic3','sc1','sc2'].forEach(id => {
+      els[id].style.opacity = '0';
+      els[id].style.transform = 'translateY(8px)';
+    });
+  }
+
+  const fadeIn  = (el, d=400) => animEl(el, {opacity:'0'}, {opacity:'1'}, d);
+  const slideUp = (el, d=380) => animEl(el,
+    {opacity:'0', transform:'translateY(8px)'},
+    {opacity:'1', transform:'translateY(0)'}, d);
+
+  async function run() {
+    reset();
+    await wait(100);
+
+    animEl(els.phone,
+      {opacity:'0', transform:'translateY(24px) scale(0.97)'},
+      {opacity:'1', transform:'translateY(0) scale(1)'}, 520);
+    await wait(240);
+
+    fadeIn(els.hdr, 380);       await wait(290);
+    fadeIn(els.greet, 360);     await wait(320);
+    fadeIn(els.sec1, 340);      await wait(220);
+
+    slideUp(els.ic1);           await wait(150);
+    slideUp(els.ic2);           await wait(150);
+    slideUp(els.ic3);           await wait(180);
+
+    fadeIn(els.showmore, 300);  await wait(220);
+    fadeIn(els.sec2, 340);      await wait(200);
+
+    slideUp(els.sc1);           await wait(150);
+    slideUp(els.sc2);           await wait(200);
+
+    animEl(els.cur,
+      {opacity:'0', transform:'translate(50px,40px)'},
+      {opacity:'1', transform:'translate(0,0)'}, 700);
+
+    await wait(1500);
+  }
+
+  async function loop() {
+    while (true) { await run(); await wait(200); }
+  }
+
+  loop();
+</script>
+</body>
+</html>

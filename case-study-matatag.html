@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATATAG — Streamlining Lesson Planning for Philippine Public School Teachers | John Buladaco</title>
+<meta name="description" content="UX case study: Designed an AI-powered lesson planning tool for Philippine teachers. Senior UI/UX Designer work on AI interfaces, generative AI products, and education SaaS.">
+<meta name="keywords" content="AI product design case study, AI interface design, generative AI UX, education SaaS, UI/UX Designer AI products, LLM-powered tools, AI-driven product design">
+<meta name="author" content="John Buladaco">
+<link rel="canonical" href="https://johnbuladaco.com/case-study-matatag.html">
+<meta property="og:title" content="Streamlining Lesson Planning for Philippine Public School Teachers">
+<meta property="og:description" content="UX case study: Designed an AI-powered lesson planning tool for Philippine teachers aligned with MATATAG curriculum.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://johnbuladaco.com/case-study-matatag.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Streamlining Lesson Planning for Philippine Teachers — John Buladaco">
+<meta name="twitter:description" content="UX case study: Designed an AI-powered lesson planning tool for Philippine teachers aligned with MATATAG curriculum.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #ffffff;
+  --surface: #f8f8f8;
+  --border: #000000;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
+  --sans: 'IBM Plex Mono', monospace;
+  --serif: 'VT323', monospace;
+  --mono: 'Space Mono', monospace;
+  --scroll-progress: 0%;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+/* Dot grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
+  animation: moveDots 3s linear infinite;
+}
+@keyframes moveDots {
+  0% { background-position: 0 0; }
+  100% { background-position: 24px 24px; }
+}
+/* Progress bar */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: var(--scroll-progress);
+  background: #000;
+  z-index: 1000;
+  transition: width 0.05s linear;
+}
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  padding: 0 2rem;
+  border-bottom: 2px solid var(--border);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-size: 24px;
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-family: var(--mono);
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 2px;
+  background: var(--text-primary);
+  transition: width 0.2s ease;
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a:hover::after { width: 100%; }
+.nav-back {
+  font-size: 13px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: transparent;
+  border: 2px solid var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 0;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-links a.nav-back:hover {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+/* LAYOUT */
+.container { max-width: 800px; margin: 0 auto; }
+section { padding: 80px 2rem; }
+/* HERO */
+.case-hero {
+  padding: 120px 2rem 80px;
+  border-bottom: 2px solid var(--border);
+}
+.case-hero .container { max-width: 800px; }
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.case-tag {
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 2px solid var(--text-primary);
+  background: var(--bg);
+}
+.case-tag--filled {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+.case-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+}
+.case-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 640px;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.case-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border);
+}
+.case-detail-label {
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.case-detail-value {
+  font-size: 14px;
+  font-weight: 500;
+}
+/* SECTIONS */
+.case-section { border-bottom: 2px solid var(--border); }
+.case-section:last-of-type { border-bottom: none; }
+.section-label {
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: var(--bg);
+  padding: 6px 14px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--text-primary);
+}
+.case-h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+}
+.case-p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  max-width: 680px;
+}
+.case-p:last-child { margin-bottom: 0; }
+/* LISTS */
+.case-list {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+.case-list li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.case-list li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+/* DECISIONS */
+.decision-card {
+  background: var(--bg);
+  border: 2px solid var(--text-primary);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.decision-card::before {
+  content: '═══════════════════════════════';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: var(--text-primary);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 4px 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.decision-card h4 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+.decision-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+/* FLOW */
+.flow-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 2px solid var(--text-primary);
+  counter-reset: step;
+}
+.flow-step {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 2px solid var(--text-primary);
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  counter-increment: step;
+}
+.flow-step:last-child { border-bottom: none; }
+.flow-step::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.flow-step span {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+/* AI MODEL */
+.ai-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.ai-card {
+  border: 2px solid var(--text-primary);
+  padding: 1.5rem;
+}
+.ai-card h4 {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.ai-card ul {
+  list-style: none;
+}
+.ai-card li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-left: 1.2rem;
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+.ai-card li::before {
+  content: '□';
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  color: var(--text-primary);
+}
+/* OUTCOME */
+.outcome-quote {
+  border: 2px solid var(--text-primary);
+  padding: 2rem;
+  margin-top: 1.5rem;
+  position: relative;
+}
+.outcome-quote::before {
+  content: '"';
+  font-family: var(--serif);
+  font-size: 64px;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  line-height: 1;
+  color: var(--text-muted);
+}
+.outcome-quote blockquote {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+.outcome-quote cite {
+  font-size: 12px;
+  font-family: var(--mono);
+  font-style: normal;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-left: 2.5rem;
+}
+/* IMAGE PLACEHOLDERS */
+.img-placeholder span {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  max-width: 400px;
+}
+/* NEXT STEPS */
+.next-list {
+  list-style: none;
+}
+.next-list li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  padding-left: 1.5rem;
+  position: relative;
+}
+.next-list li:last-child { border-bottom: none; }
+.next-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  color: var(--text-primary);
+}
+/* CTA */
+.case-cta {
+  text-align: center;
+  padding: 100px 2rem;
+}
+.case-cta h3 {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+}
+.case-cta p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--text-primary);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--text-primary);
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-primary:hover {
+  background: var(--bg);
+  color: var(--text-primary);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--text-primary);
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-ghost:hover {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .case-hero { padding: 80px 1.5rem 60px; }
+  section { padding: 60px 1.5rem; }
+  .case-details { grid-template-columns: repeat(2, 1fr); }
+  .ai-grid { grid-template-columns: 1fr; }
+  .decision-card { padding: 1.25rem 1.5rem; }
+}
+@media (max-width: 480px) {
+  .case-details { grid-template-columns: 1fr; }
+  .case-meta { gap: 0.5rem; }
+}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="mp5nfrlg-john-buladaco-portfolio.html" class="nav-logo">JB.</a>
+    <ul class="nav-links">
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#work">Work</a></li>
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#services">What I Do</a></li>
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#about">About</a></li>
+      <li><a href="mp5nfrlg-john-buladaco-portfolio.html" class="nav-back">← Back</a></li>
+    </ul>
+  </div>
+</nav>
+<main><article>
+
+<!-- HERO -->
+<section class="case-hero">
+  <div class="container">
+    <div class="case-meta">
+      <span class="case-tag case-tag--filled">Concept</span>
+      <span class="case-tag">AI Product</span>
+      <span class="case-tag">End-to-End</span>
+    </div>
+    <h1 class="case-title">Streamlining Lesson Planning for Philippine Public School Teachers</h1>
+    <p class="case-subtitle">AI-assisted lesson planning for Philippine public school teachers. Led end-to-end from PRD to shipped front end — a draft-first AI workflow that generates lesson plans, slides, and quizzes from one approved record while keeping the teacher accountable for every output.</p>
+    <div class="case-details">
+      <div>
+        <div class="case-detail-label">Role</div>
+        <div class="case-detail-value">Product Designer + Front-End Dev</div>
+      </div>
+      <div>
+        <div class="case-detail-label">Platform</div>
+        <div class="case-detail-value">Web (Next.js, Supabase)</div>
+      </div>
+      <div>
+        <div class="case-detail-label">Scope</div>
+        <div class="case-detail-value">PRD → UX → Vibe-coded FE</div>
+      </div>
+      <div>
+        <div class="case-detail-label">Type</div>
+        <div class="case-detail-value">Concept / AI-augmented</div>
+      </div>
+    </div>
+    <div style="width:100%;border-radius:12px;overflow:hidden;margin-top:2rem;border:2px solid #000;border:2px solid #000;">
+      <video aria-label="MATATAG AI lesson planner — hero overview demo" loop muted playsinline preload="metadata" style="width:100%;height:auto;display:block;border-radius:12px;" data-scroll-video>
+        <source src="assets/videos/matatag-hero-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="case-section">
+  <div class="container reveal">
+    <span class="section-label">Problem</span>
+    <h2 class="case-h2">Teachers were starting from scratch every week</h2>
+    <p class="case-p">MATATAG's competency-based curriculum demands more structured planning, not less. Teachers were starting from scratch every week. Most tools were too generic to help, and AI felt risky without a clear accountability model.</p>
+    <p class="case-p">The core tension: AI could reduce this workload significantly — but in a classroom context, unchecked AI output is a liability, not an asset. Teachers feared being blamed for content they didn't fully review. That accountability anxiety shaped every major design decision.</p>
+    <img src="assets/images/matatag-problem-illustration.webp" alt="Teacher struggling with blank lesson plan template" style="width:100%;border-radius:12px;margin-top:1.5rem;border:2px solid #000;" loading="lazy">
+  </div>
+</section>
+
+<!-- GOALS -->
+<section class="case-section">
+  <div class="container reveal">
+    <span class="section-label">Goals</span>
+    <h2 class="case-h2">What success looked like</h2>
+    <ul class="case-list">
+      <li>Cut weekly lesson prep time to a single session</li>
+      <li>Generate lesson plan, slides, and quiz from one input</li>
+      <li>Make every AI output a draft — teacher approves before anything exports</li>
+      <li>Stay aligned to MATATAG competency codes for Grades 6, 9, and 10</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="case-section">
+  <div class="container reveal">
+    <span class="section-label">Research</span>
+    <h2 class="case-h2">Three findings shaped the product</h2>
+    <ul class="case-list">
+      <li>Teachers copy-paste from old lesson plans and adjust manually — they want a strong starting point, not a blank canvas</li>
+      <li>MATATAG's four-section format (objectives, sessions, assessment, inclusion) is consistent enough to template reliably</li>
+      <li>Accountability anxiety around AI was stronger than accuracy anxiety — teachers feared being blamed for content they didn't fully review</li>
+    </ul>
+    <p class="case-p">These findings drove two non-negotiable decisions: a mandatory approval gate and a persistent draft status model.</p>
+  </div>
+</section>
+
+<!-- DESIGN STRATEGY -->
+<section class="case-section">
+  <div class="container reveal">
+    <span class="section-label">Strategy</span>
+    <h2 class="case-h2">A smart assistant, not an autopilot</h2>
+    <p class="case-p">Every AI output starts as a draft. Nothing moves forward without the teacher's explicit sign-off. I structured the workflow linearly — input → draft → edit → approve → generate — because teachers needed predictability.</p>
+    <p class="case-p">I ruled out a chat-based interface early. Conversational UI felt too open-ended for a structured curriculum workflow and would have buried required MATATAG fields behind a freeform prompt.</p>
+  </div>
+</section>
+
+<!-- KEY DECISIONS -->
+<section class="case-section">
+  <div class="container reveal">
+    <span class="section-label">Decisions</span>
+    <h2 class="case-h2">Four decisions that defined the product</h2>
+
+    <div class="decision-card">
+      <h4>Mandatory approval gate</h4>
+      <p>PPT and quiz generation are locked until the teacher signs off. This was the product's core trust mechanism. The trade-off was a slightly longer flow, but it gave teachers a defensible paper trail and directly addressed accountability anxiety.</p>
+    </div>
+
+    <div class="decision-card">
+      <h4>Structured form over open prompt</h4>
+      <p>Grade, subject, competency, and context are entered via form — not freeform chat. More consistent AI output, less cognitive load. The trade-off was less flexibility for edge cases, noted as a future iteration.</p>
+    </div>
+
+    <div class="decision-card">
+      <h4>One lesson record as single source of truth</h4>
+      <p>All three outputs — lesson plan, slides, quiz — derive from the same approved JSON. No version drift, no inconsistency between what the teacher approved and what got generated.</p>
+    </div>
+
+    <div class="decision-card">
+      <h4>Reflection stays teacher-only</h4>
+      <p>The post-class reflection field is locked during planning and never touched by AI. A small decision with a clear signal: some parts of teaching AI should not enter.</p>
+    </div>
+
+    <div style="margin-top:2rem;">
+      <video aria-label="MATATAG quiz generation and approval workflow" data-scroll-video muted loop playsinline preload="metadata" style="width:100%;border-radius:12px;border:2px solid #000;">
+        <source src="assets/videos/matatag-quiz-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+</section>
+
+<!-- CORE FLOW -->
+<section class="case-section">
+  <div class="container reveal">
+    <span class="section-label">Flow</span>
+    <h2 class="case-h2">Input to export in one session</h2>
+    <div class="flow-steps">
+      <div class="flow-step"><span>Teacher inputs grade, subject, week, quarter, and competency code</span></div>
+      <div class="flow-step"><span>Teacher adds local learner context</span></div>
+      <div class="flow-step"><span>AI drafts a structured lesson across four MATATAG sections</span></div>
+      <div class="flow-step"><span>Teacher edits inline and approves the draft</span></div>
+      <div class="flow-step"><span>System unlocks PPT and quiz generation</span></div>
+      <div class="flow-step"><span>Teacher selects quiz type and item count</span></div>
+      <div class="flow-step"><span>Teacher downloads PPTX and exports quiz</span></div>
+      <div class="flow-step"><span>Reflection field remains blank — teacher fills it after class</span></div>
+    </div>
+    <div style="margin-top:2rem;border-radius:12px;overflow:hidden;border:2px solid #000;">
+      <video aria-label="MATATAG lesson creation flow demo" muted loop playsinline preload="metadata" data-scroll-video style="width:100%;height:auto;display:block;border-radius:12px;">
+        <source src="assets/videos/matatag-flow-demo.mp4" type="video/mp4">
+      </video>
+    </div>  </div>
+</section>
+
+<!-- AI INTERACTION MODEL -->
+<section class="case-section">
+  <div class="container reveal">
+    <span class="section-label">AI Model</span>
+    <h2 class="case-h2">Where AI helps, where the human stays</h2>
+    <p class="case-p">The MATATAG lesson format is structured and repeatable enough for AI to draft reliably. Weekly planning — same format, new competency — is exactly where AI reduces friction without replacing judgment.</p>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <h4>Human control</h4>
+        <ul>
+          <li>Every AI output is labeled Draft on generation</li>
+          <li>Teachers can edit every field before approving</li>
+          <li>No file generated from unapproved lesson</li>
+          <li>Reflection section never touched by AI</li>
+        </ul>
+      </div>
+      <div class="ai-card">
+        <h4>Trust mechanisms</h4>
+        <ul>
+          <li>Draft / Approved status persistent and visible</li>
+          <li>Export gated at system level</li>
+          <li>Generation failure preserves teacher input</li>
+          <li>Never a blank state on error</li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-radius:12px;overflow:hidden;margin-top:2rem;border:2px solid #000;">
+      <video aria-label="MATATAG AI draft to approved lesson workflow" data-scroll-video muted loop playsinline preload="metadata" style="width:100%;height:auto;display:block;border-radius:12px;">
+        <source src="assets/videos/matatag-ai-demo.mp4" type="video/mp4">
+      </video>
+    </div>  </div>
+</section>
+
+<!-- OUTCOME -->
+<section class="case-section">
+  <div class="container reveal">
+    <span class="section-label">Outcome</span>
+    <h2 class="case-h2">The approval gate held</h2>
+    <p class="case-p">End-to-end flow from input to file export completed in a single session. No edge case allowed export of unapproved content. Early feedback from instructional leads consistently highlighted the draft status model as the feature that made them trust the tool.</p>
+    <div style="margin:2rem 0;"><img src="assets/images/matatag-outcome-illustration.webp" alt="MATATAG outcome — lesson plan, PPTX slide, and quiz export" style="width:100%;border-radius:12px;border:2px solid #000;" loading="lazy"></div>
+    <div class="outcome-quote">
+      <blockquote>The approval step is what made me feel like this was actually safe to use in my class.</blockquote>
+      <cite>Department Head, Public Secondary School</cite>
+    </div>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="case-section">
+  <div class="container reveal">
+    <span class="section-label">Next</span>
+    <h2 class="case-h2">Reflection & next steps</h2>
+    <p class="case-p">I'd involve department heads earlier. They surfaced visibility and tracking needs that would have shaped the data model from the start rather than becoming a future iteration.</p>
+    <ul class="next-list">
+      <li>Replace manual competency code entry with a searchable DepEd competency database</li>
+      <li>Add department-level visibility for tracking lesson plan completion</li>
+      <li>Expand coverage beyond Grades 6, 9, and 10</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="case-cta">
+  <div class="container">
+    <h3>Want to work together?</h3>
+    <p>I'm available for product design and front-end development projects.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="mp5nfrlg-john-buladaco-portfolio.html#contact" class="btn-primary">Get in touch</a>
+      <a href="mp5nfrlg-john-buladaco-portfolio.html" class="btn-ghost">← Back to portfolio</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// Scroll progress
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.documentElement.style.setProperty('--scroll-progress', pct + '%');
+});
+// Reveal on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+const vidObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.play().catch(() => {}); }
+    else { e.target.pause(); }
+  });
+}, { threshold: 0.25, rootMargin: "200px" });
+document.querySelectorAll("[data-scroll-video]").forEach(v => vidObs.observe(v));
+</script>
+</article></main>
+</body>
+</html>
