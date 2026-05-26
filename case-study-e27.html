@@ -428,10 +428,55 @@ section { padding: 80px 2rem; }
   color: var(--text-secondary);
   line-height: 1.8;
 }
+.more-cases {
+  padding: 60px 2rem;
+  border-top: 2px solid var(--border);
+}
+.more-cases h3 {
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  margin-bottom: 1.5rem;
+}
+.case-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.case-card {
+  display: block;
+  border: 2px solid var(--border);
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.case-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 3px 3px 0 var(--text-primary);
+}
+.case-card-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+.case-card-title {
+  font-family: var(--serif);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+.case-card-role {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
 .case-cta {
   text-align: center;
-  padding: 80px 2rem;
-  border-top: 2px solid var(--border);
+  padding: 60px 2rem;
 }
 .case-cta h3 {
   font-family: var(--serif);
@@ -548,6 +593,7 @@ section { padding: 80px 2rem; }
 @media (max-width: 480px) {
   .outcome-grid { grid-template-columns: 1fr; }
   .case-details { grid-template-columns: 1fr; }
+  .case-cards { grid-template-columns: 1fr; gap: 1rem; }
   .case-cta div { flex-direction: column; align-items: center; }
 }
 </style>
@@ -556,12 +602,12 @@ section { padding: 80px 2rem; }
 <div id="progress-bar"></div>
 <nav>
   <div class="nav-inner">
-    <a href="mp5nfrlg-john-buladaco-portfolio.html" class="nav-logo">JB.</a>
+    <a href="/" class="nav-logo">JB.</a>
     <ul class="nav-links">
-      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#work">Work</a></li>
-      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#services">What I Do</a></li>
-      <li><a href="mp5nfrlg-john-buladaco-portfolio.html#about">About</a></li>
-      <li><a href="mp5nfrlg-john-buladaco-portfolio.html" class="nav-back">← Back</a></li>
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#services">What I Do</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/" class="nav-back">← Back</a></li>
     </ul>
   </div>
 </nav><main><article>
@@ -835,13 +881,39 @@ section { padding: 80px 2rem; }
   </div>
 </section>
 
+<!-- MORE CASES -->
+<section class="more-cases">
+  <div class="container">
+    <h3>More Case Studies</h3>
+    <div class="case-cards">
+      <a href="/case-study/matatag" class="case-card">
+        <div class="case-card-tag">Live · Web App · AI Assistant</div>
+        <div class="case-card-title">Streamlining Lesson Planning for Philippine Public School Teachers</div>
+        <div class="case-card-role">Product Designer · AI UX</div>
+      </a>
+      <a href="/case-study/pawbook" class="case-card">
+        <div class="case-card-tag">Concept · Mobile App</div>
+        <div class="case-card-title">Simplifying Appointment Booking for Solo Pet Groomers</div>
+        <div class="case-card-role">Product Designer · Mobile UI/UX · AI UX</div>
+      </a>
+      <a href="/case-study/kindly" class="case-card">
+        <div class="case-card-tag">Live · Web App · AI System</div>
+        <div class="case-card-title">Scaling Agency Output from 1 to 10 through Five Automated Systems</div>
+        <div class="case-card-role">Founder · Product Designer · AI Workflow</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="case-cta">
-  <h3>See more work</h3>
-  <p>Back to the portfolio or check out another case study.</p>
-  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-    <a href="mp5nfrlg-john-buladaco-portfolio.html" class="btn-primary">← Back to Portfolio</a>
-    <a href="case-study-kindly.html" class="btn-ghost">Kindly Studio →</a>
+  <div class="container">
+    <h3>Want to work together?</h3>
+    <p>I'm available for product design and AI-augmented design projects.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="mailto:johnmbuladaco@gmail.com" class="btn-primary">Work With Me</a>
+      <a href="/" class="btn-ghost">← Back to Home</a>
+    </div>
   </div>
 </section>
 
