@@ -1,26 +1,17 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/mp5nfrlg-john-buladaco-portfolio.html" },
-    { "source": "/case-study/matatag", "destination": "/case-study-matatag.html" },
-    { "source": "/case-study/pawbook", "destination": "/case-study-pawbook.html" },
-    { "source": "/case-study/e27", "destination": "/case-study-e27.html" },
-    { "source": "/case-study/kindly", "destination": "/case-study-kindly.html" }
+  "trailingSlash": false,
+  "routes": [
+    { "src": "^/$", "dest": "/mp5nfrlg-john-buladaco-portfolio.html" },
+    { "src": "^/case-study/matatag$", "dest": "/case-study-matatag.html" },
+    { "src": "^/case-study/pawbook$", "dest": "/case-study-pawbook.html" },
+    { "src": "^/case-study/e27$", "dest": "/case-study-e27.html" },
+    { "src": "^/case-study/kindly$", "dest": "/case-study-kindly.html" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/404.html", "status": 404 }
   ],
   "headers": [
     {
-      "source": "/assets/images/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/assets/gifs/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/assets/videos/(.*)",
+      "source": "/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
