@@ -23,7 +23,8 @@ body{font-family:'Space Mono',monospace;background:#fff;color:#000;min-height:10
 .dots-row{position:absolute;top:50%;transform:translateY(-50%);left:0;right:0;display:flex;justify-content:space-around;padding:0 80px}
 .dot{width:8px;height:8px;background:#000;border-radius:50%;transition:opacity 0.2s}
 .dot.eaten{opacity:0}
-.ghost{position:absolute;right:20px;top:50%;transform:translateY(-50%);width:40px;height:44px;animation:ghostFloat 2s ease-in-out infinite}
+.ghost{position:absolute;right:20px;top:50%;transform:translateY(-50%);width:40px;height:44px;animation:ghostFloat 2s ease-in-out infinite;transition:opacity 0.3s,transform 0.3s}
+.ghost.eaten{opacity:0;transform:translateY(-50%) scale(0.3)}
 .ghost-body{width:40px;height:36px;background:#000;border-radius:20px 20px 0 0;position:relative}
 .ghost-skirt{display:flex;position:absolute;bottom:-8px;left:0;right:0}
 .ghost-skirt span{flex:1;height:8px;background:#000;border-radius:0 0 50% 50%}
@@ -78,18 +79,21 @@ body{font-family:'Space Mono',monospace;background:#fff;color:#000;min-height:10
 <script>
 const digits=document.querySelectorAll('.digit');
 const dots=document.querySelectorAll('.dot');
+const ghost=document.querySelector('.ghost');
 const scoreEl=document.querySelector('.score span');
 let score=0;
 function runCycle(){
 score=0;scoreEl.textContent='0';
 digits.forEach(d=>d.classList.remove('eaten'));
 dots.forEach(d=>d.classList.remove('eaten'));
+ghost.classList.remove('eaten');
 dots.forEach((dot,i)=>{
 setTimeout(()=>{dot.classList.add('eaten');score+=10;scoreEl.textContent=score;},800+i*350);
 });
 setTimeout(()=>{digits[0].classList.add('eaten');score+=100;scoreEl.textContent=score;},2200);
 setTimeout(()=>{digits[1].classList.add('eaten');score+=100;scoreEl.textContent=score;},2400);
 setTimeout(()=>{digits[2].classList.add('eaten');score+=100;scoreEl.textContent=score;},2600);
+setTimeout(()=>{ghost.classList.add('eaten');score+=200;scoreEl.textContent=score;},3200);
 }
 runCycle();
 setInterval(runCycle,4000);
